@@ -103,24 +103,23 @@ const soma = (num1, num2) => {
     const somar = (num1 + num2)
     return somar
 }
-console.log(soma(num1, num2))
+console.log(`Números inseridos: ${num1} e ${num2}`)
+console.log(`Soma: ${soma(num1, num2)}`)
 
 const sub = (num1, num2) => {
     const subtrair = (num1 - num2)
     return subtrair
 }
-console.log(sub(num1, num2))
+console.log(`Diferença: ${sub(num1, num2)}`)
 
 const multi = (num1, num2) => {
     const multiplicar = (num1 * num2)
     return multiplicar
 }
-console.log(multi(num1, num2))
+console.log(`Multiplicação: ${multi(num1, num2)}`)
 
 const div = (num1, num2) => {
     const dividir = (num1 / num2)
     return dividir
 }
-console.log(div(num1, num2))
-
-console.log(`Soma: ${soma(num1,num2)} \nDiferença: ${sub(num1,num2)} \n(Multiplicação: ${multi(num1,num2)} \nDivisão: ${div(num1,num2)}`)
+console.log(`Divisão: ${div(num1, num2)}`)
