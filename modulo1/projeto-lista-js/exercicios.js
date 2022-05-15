@@ -54,17 +54,17 @@ function imprimeTresCoresFavoritas() {
   return console.log(imprimeTresCoresFavoritas)
 }
 
-// EXERCÍCIO 06 DA SÓ NO CONSOLE LOG
+// EXERCÍCIO 06 OK
 function retornaStringEmMaiuscula(string) {
   return retornaStringEmMaiuscula = (string.toUpperCase())
 }
 
-// EXERCÍCIO 07 DA SÓ NO CONSOLE LOG E PEDINDO 2X
+// EXERCÍCIO 07 OK
 function calculaIngressosEspetaculo(custo, valorIngresso) {
   return calculaIngressosEspetaculo = (custo / valorIngresso)
 }
 
-// EXERCÍCIO 08
+// EXERCÍCIO 08 OK
 function checaStringsMesmoTamanho(string1, string2) {
   // let string1 = (prompt("DIgite uma palavra:"))
   // let string2 = (prompt("Digite outra palavra:"))
@@ -72,7 +72,7 @@ function checaStringsMesmoTamanho(string1, string2) {
   return checaStringsMesmoTamanho = (string1 > string2)
 }
 
-// EXERCÍCIO 09
+// EXERCÍCIO 09 OK
 function retornaPrimeiroElemento(array) {
   return (array[0])
 
@@ -84,35 +84,67 @@ function retornaUltimoElemento(array) {
   return a
 }
 
-// EXERCÍCIO 11 array: ["ola","abc"]  NÃO CONSEGUI
+// EXERCÍCIO 11 array: ["ola","abc"]  ESTUDAR MAIS SOBRE ESSE
 //                        0     1
 function trocaPrimeiroEUltimo(array) {
-  // array.pop() // abc
-  array.push(array[1])
+  let primeiro = array[0]   //representa primeira posição
+  let ultimo = array[array.length - 1] // representa a última posição
+  array[0] = ultimo
+  array[array.length - 1] = primeiro
   return array
-
 }
 
-// EXERCÍCIO 12  NÃO CONSEGUI POR O toLoweCase()
+// EXERCÍCIO 12  OK
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
-  return checaIgualdadeDesconsiderandoCase = (string1 === string2)
+  checaIgualdadeDesconsiderandoCase = (string1.toUpperCase() === string2.toUpperCase())
+  return checaIgualdadeDesconsiderandoCase
 }
 
 // EXERCÍCIO 13 //ano atual: 2020 / ano de nascimento: 2000 / ano de emissao do RG: 2015
 // true = precisa renovar / false = não precisa renovar
+//20 anos <=  5 em 5 anos | 21 a 50 anos 10 em 10 anos | 51+ anos 15 em 15 anos
 function checaRenovacaoRG() {
-
-
+  let anoAtual = Number(prompt("Ano atual:"))
+  let anoNasc = Number(prompt("Ano de nascimento:"))
+  let anoId = Number(prompt("Ano da identidade:"))
+  idade = anoAtual - anoNasc
+  // 20anos = 2020  -   2000  
+  renovacao = anoAtual - anoId
+  // 5anos    =  2020   -  2015
+  if ((idade <= 20) = (renovacao <= 5))
+  console.log(checaRenovacaoRG)
+  else ((idade > 20 <= 50) = (renovacao <= 10))
+  console.log(checaRenovacaoRG)
+  else if ((idade > 50) = (renovacao >= 15))
+  console.log(checaRenovacaoRG)
+  // console.log(checaRenovacaoRG <= 5, <= 50, > 50)
+  // console.log((anoAtual - anoNasc <= 5).includes(anoId) || (anoAtual - anoNasc >= 50).includes(anoId) || (anoAtual - anoNasc > 50).includes(anoId))
+  //let idade = anoAtual - anoNasc
+  // let renovaEm5 = anoAtual - anoId
+  // let renovaEm10 = anoAtual - anoId
+  // let renovaEm15 = anoAtual - anoId
+  // console.log(checaRenovacaoRG > (anoAtual - anoNasc < anoId))
+  // renovaEm5 = idade <= 20
+  // renovaEm10 = idade >= 20 < 50
+  // renovaEm15 = idade > 50
+  // console.log(checaRenovacaoRG)
 }
 
-// EXERCÍCIO 14
+// EXERCÍCIO 14 NÃO
 function checaAnoBissexto(ano) {
-  // implemente sua lógica aqui
-
+  let bissexto = ano % 4 === 0
+  let naoBissexto = ano % 4 !== 0
+  ano = bissexto !== naoBissexto
+  return ano
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
-  // implemente sua lógica aqui
-
+  let resposta1 = prompt("Você tem mais de 18 anos?")
+  let resposta2 = prompt("Você possui ensino médio completo?")
+  let resposta3 = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
+  console.log(
+    resposta1.toLowerCase().includes("sim") &&
+    resposta2.toLowerCase().includes("sim") &&
+    resposta3.toLowerCase().includes("sim"))
 }
