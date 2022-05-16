@@ -107,26 +107,14 @@ function checaRenovacaoRG() {
   let anoAtual = Number(prompt("Ano atual:"))
   let anoNasc = Number(prompt("Ano de nascimento:"))
   let anoId = Number(prompt("Ano da identidade:"))
-  idade = anoAtual - anoNasc
-  // 20anos = 2020  -   2000  
-  renovacao = anoAtual - anoId
-  // 5anos    =  2020   -  2015
-  if ((idade <= 20) = (renovacao <= 5))
-  console.log(checaRenovacaoRG)
-  else ((idade > 20 <= 50) = (renovacao <= 10))
-  console.log(checaRenovacaoRG)
-  else if ((idade > 50) = (renovacao >= 15))
-  console.log(checaRenovacaoRG)
-  // console.log(checaRenovacaoRG <= 5, <= 50, > 50)
-  // console.log((anoAtual - anoNasc <= 5).includes(anoId) || (anoAtual - anoNasc >= 50).includes(anoId) || (anoAtual - anoNasc > 50).includes(anoId))
-  //let idade = anoAtual - anoNasc
-  // let renovaEm5 = anoAtual - anoId
-  // let renovaEm10 = anoAtual - anoId
-  // let renovaEm15 = anoAtual - anoId
-  // console.log(checaRenovacaoRG > (anoAtual - anoNasc < anoId))
-  // renovaEm5 = idade <= 20
-  // renovaEm10 = idade >= 20 < 50
-  // renovaEm15 = idade > 50
+  let idade = Number(anoAtual - anoNasc)
+  let tempoRG = Number(anoAtual - anoId)
+  renovaEm5 = (idade <= 20 && tempoRG >= 5)
+  renovaEm10 = (idade > 20 && idade <= 50 && tempoRG >= 10)
+  renovaEm15 = (idade > 50 && tempoRG >= 15)
+
+  console.log(renovaEm5 || renovaEm10 || renovaEm15)
+
   // console.log(checaRenovacaoRG)
 }
 
