@@ -14,13 +14,13 @@
 console.log("Bem-vindo(a) ao jogo de blackjack")
 if (confirm("Quer iniciar uma nova rodada?")) {
    
-   let cartaUsuario1 = comprarCarta()
-   let carta2 = comprarCarta()
+   let carta1Usuario = comprarCarta()
+   let carta2Usuario = comprarCarta()
    let carta1PC = comprarCarta()
    let carta2PC = comprarCarta()
-   let pontosUsuario = cartaUsuario1.valor + carta2.valor
+   let pontosUsuario = carta1Usuario.valor + carta2Usuario.valor
    let pontosPC = carta1PC.valor + carta2PC.valor
-   console.log(`Usuário - cartas: ${cartaUsuario1.texto} ${carta2.texto}  - pontuação ${pontosUsuario}`)
+   console.log(`Usuário - cartas: ${carta1Usuario.texto} ${carta2Usuario.texto}  - pontuação ${pontosUsuario}`)
 
    console.log(`Computador - cartas: ${carta1PC.texto} ${carta2PC.texto}  - pontuação ${pontosPC}`)
 
