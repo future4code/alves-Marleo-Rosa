@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="ctrl-estoque.css">
     <title>Controle de Estoque</title>
 </head>
+
 <body>
-    <header>
+    <header class="cabeca">
         <p>Márleo Photo Store</p>
     </header>
-    
-    <nav>
+
+    <nav class="menu">
         <a href="index.html">Página Inicial</a>
         <a href="ctrl-estoque.html">Controle de Estoque</a>
         <a href="add-produto.html">Adicionar Produto</a>
         <a href="funcionarios.html">Funcionários</a>
     </nav>
+    <div class="listaProdutos">
+        <h2>Controle de Estoque</h2>
 
-    <h2>Controle de Estoque</h2>
+        <table>
+            <tr>
+                <th>Foto</th>
+                <th>Descrição</th>
+                <th>Preço (R$)</th>
+                <th>Quantidade disponível</th>
+            </tr>
 
-    <table>
-        <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço (R$)</th>
-            <th>Quantidade disponível</th>
-        </tr>
+            <tr>
+                <td><img src="Imagens\Mavic 3 Pro.jpg" alt="DJI Mavic 3 Pro" /></td>
+                <td> DJI Mavic 3 Pro </td>
+                <td> R$14.900 </td>
+                <td> 02 </td>
+            </tr>
 
-        <tr>
-            <td><img src="Imagens\Mavic 3 Pro.jpg" alt="DJI Mavic 3 Pro" /></td>
-            <td> DJI Mavic 3 Pro </td>
-            <td> R$14.900 </td>
-            <td> 02 </td>
-        </tr>
+            <tr>
+                <td><img src="Imagens\Mini 3 Pro.jpg" alt="DJI Mini 3 Pro" /></td>
+                <td> DJI Mini 3 Pro </td>
+                <td> R$5.499 </td>
+                <td> 05 </td>
+            </tr>
 
-        <tr>
-            <td><img src="Imagens\Mini 3 Pro.jpg" alt="DJI Mini 3 Pro"/></td>
-            <td> DJI Mini 3 Pro </td>
-            <td> R$5.499 </td>
-            <td> 05 </td>
-        </tr>
+            <tr>
+                <td><img src="Imagens\Action 2.jpg" alt="DJI Action 2" /></td>
+                <td> DJI Action 2 </td>
+                <td> R$2.299 </td>
+                <td> 04 </td>
+            </tr>
 
-        <tr>
-            <td><img src="Imagens\Action 2.jpg" alt="DJI Action 2"/></td>
-            <td> DJI Action 2 </td>
-            <td> R$2.299 </td>
-            <td> 04 </td>
-        </tr>
+            <tr>
+                <td><img src="Imagens\DJI Osmo 5.jpg" alt="DJI Osmo 5" /></td>
+                <td> DJI Osmo 5 </td>
+                <td> R$1099 </td>
+                <td> 03 </td>
+            </tr>
 
-        <tr>
-            <td><img src="Imagens\DJI Osmo 5.jpg" alt="DJI Osmo 5"/></td>
-            <td> DJI Osmo 5 </td>
-            <td> R$1099 </td>
-            <td> 03 </td>
-        </tr>
+            <tr>
+                <td><img src="Imagens\DJI Matrice 30.jpg" alt="DJI Matrice 30"></td>
+                <td>DJI Matrice 30</td>
+                <td>R$159.900</td>
+                <td>sob encomenda</td>
+            </tr>
+            <!-- Crie mais uma linha desta tabela abaixo \/ -->
 
-        <tr>
-            <td><img src="Imagens\DJI Matrice 30.jpg" alt="DJI Matrice 30"></td>
-            <td>DJI Matrice 30</td>
-            <td>R$159.900</td>
-            <td>sob encomenda</td>
-        </tr>
-        <!-- Crie mais uma linha desta tabela abaixo \/ -->
-        
-    </table>
-    
+        </table>
+    </div>
+    <footer class="rodape2">
+        <p>© 2022 by <a href="http://marleopiber.com" target="_blank" rel="noopener noreferrer">Márleo Piber</a>.</p>
+    </footer>
 
 </body>
+
 </html>
