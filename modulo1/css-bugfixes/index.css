@@ -39,7 +39,6 @@ div img {
 
 .botao-amarelo {
     background-color: #ffaf43;
-    /* padding-top: 15px; */
     width: 250px;
     height: 40px;
     border-radius: 5px;
@@ -82,7 +81,9 @@ div img {
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
+    display: block;
+    /* position: -absolute; */
+    padding: 10px 0;
     font-size: 60px;
 }
 
