@@ -77,11 +77,20 @@ div img {
 
 }
 
+
+#container-de-descricao p {
+    
+    line-height: 100px;
+    text-align: center;
+
+}
+
 #container-de-descricao {
     text-align: center;
     color: white;
     padding: 15px 0px;
 }
+
 
 #container-para-comprar {
     background-color: #e7eb90;
@@ -107,7 +116,9 @@ div:last-child {
 }
 
 table {
+    text-align: center;
     width: 60%;
+    margin: 0% auto;
 }
 
 td button {
