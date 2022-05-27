@@ -116,6 +116,7 @@ div:last-child {
 }
 
 table {
+    font-family: Roboto, Courier;
     text-align: center;
     width: 60%;
     margin: 0% auto;
