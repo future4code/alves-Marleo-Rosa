@@ -9,6 +9,9 @@ body {
 
 /* Imagem principal */
 
+/* .centralizarFotoPrincipal {
+    width: 100%;
+} */
 .header-container {
     /* height: 100vh;
     width: 100vw; */
@@ -19,14 +22,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: flex-start; */
-    /* box-sizing: border-box; */
-    /* padding: 0 112px; */
-    /* position: relative; */
-    /* position: absolute; */
+    Border: 2px solid red;
 }
 
 /* Meu nome de apresentação */
@@ -59,13 +55,19 @@ h3 {
     text-align: center;
 }
 
-/* Bloco com Linkedin e Github */
+.centralRedesSociais {
+    width: 100%;
+}
+
+/* Bloco com Linkedin, Github, YouTube e Instagram */
 .social-media {
     margin-top: 1rem;
     display: flex;
-    width: 40%;
-    width: 100%;
-    text-align: center;
+    /* width: 40%; */
+    width: 50%;
+    margin: 0% auto;
+
+    /* text-align: center; */
 }
 
 /* Dentro do bloco com Linkedin e Github */
