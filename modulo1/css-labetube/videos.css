@@ -63,6 +63,48 @@ section{
     padding: 10px;
 }
 
+@media screen and (max-device-width : 480px) {
+
+    /* celulares */
+    section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        /* justify-content: flex-start; */
+        align-items: center;
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+    }
+
+    header{
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0% 5%;
+    }
+    header #divBusca, #txtBusca{
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        text-align: center;
+        width: 100%;
+    }
+
+    header h3 {
+        display: none;
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+        text-align: center;
+        margin: 1% 4%;
+        width: 90%;
+    }
+}
 
 /* RODAPÉ */
 footer {
@@ -74,3 +116,4 @@ footer {
     box-shadow: 1px 1px 5px rgb(0, 162, 255);
     padding: 1rem;
 }
+
