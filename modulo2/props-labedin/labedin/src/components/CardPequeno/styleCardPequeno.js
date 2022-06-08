@@ -9,7 +9,7 @@ export const CardPequenoStyle =  styled.section `
     height: 200px;
 `
 
-export const CardPequenoStyleImg = styled.img`
+export const CardPequenoStyleImg = styled.div`
     width: 70px;
     margin-right: 10px;
     border-radius: 50%;
