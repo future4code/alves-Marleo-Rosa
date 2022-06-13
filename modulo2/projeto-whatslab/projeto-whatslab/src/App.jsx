@@ -1,5 +1,5 @@
 import React from "react";
-import { BotaoEnviar, Quadradao, EscreveUsuario } from "./style";
+import { BotaoEnviar, Quadradao, EscreveUsuario, MsgEnviadas, CaractereUser } from "./style";
 class App extends React.Component {
 
   state = {
@@ -30,10 +30,10 @@ class App extends React.Component {
   render() {
     const declararMensagens = this.state.mensagens.map((item) => {
       return (
-        <div>
-          <div>{item.usuario}</div>
+        <MsgEnviadas>
+          <CaractereUser>{item.usuario} </CaractereUser>
           <div>{item.mensagem}</div>
-        </div>
+        </MsgEnviadas>
       )
     })
     return (
