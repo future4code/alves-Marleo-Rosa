@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios"
 import { PrimeiraTela } from './components/PrimeiraTela';
 import { SegundaTela } from './components/SegundaTela';
+import {CriarUserButton} from './components/PrimeiraTela'
 class App extends React.Component {
 
   state = {
@@ -21,7 +22,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.mudaPagina}>Trocar de tela</button>
+        {/* <button onClick={this.mudaPagina}>Trocar de tela</button> */}
+        <CriarUserButton onClick={this.mudaPagina}>Trocar de tela</CriarUserButton>
         {this.state.paginaAtual === "cadastro" ? <PrimeiraTela /> : <SegundaTela />}
       </div>
     )
