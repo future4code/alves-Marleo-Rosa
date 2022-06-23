@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "74ba8c04-5b44-4f6d-a7e4-11874bc86784",
+		"name": "Labefy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21555670"
+	},
+	"item": [
+		{
+			"name": "createPlaylist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://documenter.getpostman.com/view/7549981/SztBc8eT?version=latest",
+					"protocol": "https",
+					"host": [
+						"documenter",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"view",
+						"7549981",
+						"SztBc8eT"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "latest"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPlaylists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marleo-piber-alves",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTrackToPlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marleo-piber-alves",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"A vida de cabelos brancos\", \r\n    \"artist\": \"Nilton Ferreira\",\r\n    \"url\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/33ddcdab-e22e-4926-8fa0-6a773fdd2a6f/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"33ddcdab-e22e-4926-8fa0-6a773fdd2a6f",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPlaylistTracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marleo-piber-alves",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/33ddcdab-e22e-4926-8fa0-6a773fdd2a6f/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"33ddcdab-e22e-4926-8fa0-6a773fdd2a6f",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchPlaylist ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marleo-piber-alves",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search33ddcdab-e22e-4926-8fa0-6a773fdd2a6f",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"search33ddcdab-e22e-4926-8fa0-6a773fdd2a6f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePlaylist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marleo-piber-alves",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/8451be1f-3701-44ac-8b64-e65c9a326a1d",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"8451be1f-3701-44ac-8b64-e65c9a326a1d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeTrackFromPlaylist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marleo-piber-alves",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/5706660a-8552-493b-8c9e-735cc80db25c/tracks/:trackId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"5706660a-8552-493b-8c9e-735cc80db25c",
+						"tracks",
+						":trackId"
+					],
+					"variable": [
+						{
+							"key": "trackId",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
