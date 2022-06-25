@@ -1,29 +1,16 @@
-import React from "react";
-import axios from "axios";
-import { TelaInicial } from './pages/TelaInicial'
+import axios from "axios"
+import React from "react"
+import styled from "styled-components"
+import CriarPlaylist from "./pages/CriarPlaylist"
+import VerPlaylists from "./pages/VerPlaylists"
 
-class App extends React.Component {
-
-  state = {
-    inputUser: "",
-    InputEmail: "",
-    paginaAtual: "cadastro"
-  }
-
-
-  mudaPagina = () => {
-    if (this.state.paginaAtual === "cadastro") {
-      this.setState({paginaAtual: "listaUsuarios"})      
-    } else {
-      this.setState({paginaAtual: "cadastro"})
-    }
-  }
-  render() {
+function App() {
     return (
       <div>
-        Projeto Labefy
-      </div >
-    );
+        <CriarPlaylist/>
+        <VerPlaylists/>
+      </div>
+    )
   }
-}
-export default App;
+
+  export default App
