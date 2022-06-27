@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-export default class CriarPlaylist extends Component {
+export class CriarPlaylist extends React.Component {
     state = {
         playlist: ""
     }
-    handlePlaylist = (event) =>
-        this.setState({ playlist: event.target.value })
 
+    handlePlaylist = (event) =>
+    this.setState({ playlist: event.target.value })
+    
     novaPlaylist = () => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
         const body = {
             name: this.state.playlist
         }
-        axios.post(url, body, {
+        const headers =
+        {
             headers: {
                 Authorization: "marleo-piber-alves"
             }
-        }).then((res) => {
+        }
+        
+        axios.post(url, body, headers).then((res) => {
             alert("Playlist adicionada!")
             console.log(res.data)
             this.setState({ playlist: "" })
