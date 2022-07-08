@@ -27,3 +27,16 @@ export const ImagemLogo = styled.img`
     cursor:pointer;
   }
 `
+
+export const ImgUser = styled.img`
+  width: 50px;
+
+`
+
+export const Description = styled.div`
+  
+`
+
+export const Descricao = styled.div`
+
+`

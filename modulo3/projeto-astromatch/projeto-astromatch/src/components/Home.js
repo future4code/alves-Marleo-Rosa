@@ -4,23 +4,33 @@ import TelaInicial from '../pages/TelaInicial/TelaInicial'
 import TelaMatches from '../pages/TelaMatches/TelaMatches'
 
 function Home() {
+    const [listaPerfis, setListaPerfis] = useState({})
     const [trocaTela, setTrocaTela] = useState(true)
+    const [lista, setLista] = useState([])
     function escolherTela() {
         switch (trocaTela) {
             case true:
                 return (
                     <TelaInicial
-                        trocarTela={trocarTela}
+                        listarMatches={listarMatches}
+                        listaPerfis={listaPerfis}
+                        botaoDislike={botaoDislike}
+                        botaoLike={botaoLike}
+                        limpar={limpar}
                     />
                 )
 
             case false:
                 return <TelaMatches
-                    trocarTela={trocarTela}
+                    mudarTela={trocarTela}
+                    lista={lista}
                 />
 
             default:
-                return <TelaInicial />
+                return <TelaInicial
+                    mudarTela={trocarTela}
+                />
+
 
         }
     }
@@ -29,30 +39,83 @@ function Home() {
         setTrocaTela(!trocaTela)
     }
 
-    const TelaInicial = () => {
+    const pegaPerfil = () => {
 
         axios
             .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/person`)
-            .then(res => console.log(res.data.profile.name))
+            .then(res => {
+                console.log(res.data.profile)
+                setListaPerfis(res.data.profile)
+            })
+
+            .catch(err => alert('Problemas de conexão'))
+    }
+
+    const deiLike = () => {
+
+        axios
+            .post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/choose-person`,
+                {
+                    "id": listaPerfis.id,
+                    "choice": true
+                }
+            )
+
+            .then(res => {
+                pegaPerfil()
+                console.log(res.data)
+            })
+
+            .catch(err => alert('Problemas de conexão'))
+    }
+
+    const listarMatches = () => {
+
+        axios
+            .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/matches`)
+
+            .then(res => {
+                console.log(res)
+                setLista(res.data.matches)
+                setTrocaTela(false)
+            })
+
+            .catch(err => alert('Problemas de conexão'))
+    }
+
+    const limpar = () => {
+
+        axios
+            .put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/clear`)
+
+            .then(res => {
+                alert("Foi resetado!")
+            })
+
             .catch(err => alert('Problemas de conexão'))
     }
 
     useEffect(() => {
         console.log("useEffect")
-        TelaInicial()
-        TelaMatches()
+        pegaPerfil()
+        // < TelaMatches />
     }, [])
 
+    const botaoDislike = () => {
+        pegaPerfil()
+        console.log("Botão dislike")
+    }
+
+    const botaoLike = () => {
+        deiLike()
+        console.log("Botão Like")
+    }
     return (
         <div
-            trocaTela={trocaTela}
+            // trocaTela={trocaTela}
             trocarTela={trocarTela}
         >
-            <h3>Astro Match</h3>
-            <h4>Perfis</h4>
-            <p>perfil.name</p>
-            <p>perfil.age</p>
-            <p>perfil.bio</p>
+
             {escolherTela()}
         </div>
     )
