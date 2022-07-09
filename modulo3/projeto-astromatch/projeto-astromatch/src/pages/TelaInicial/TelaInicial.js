@@ -1,5 +1,5 @@
 import React from 'react'
-import { Descricao, Description, EstiloBotoes, EstiloDislike, EstiloLike, EstiloReset, EstiloTroca, Header, ImagemLogo, ImgUser, Tudao } from './Style'
+import { Descricao, Description, Escopo, EstiloBotoes, EstiloDislike, EstiloLike, EstiloReset, EstiloTroca, Header, ImagemLogo, ImgUser, Tudao } from './Style'
 import logo from '../../assets/img/astromatch-logo.png'
 import like from '../../assets/img/like.png'
 import dislike from '../../assets/img/dislike.png'
@@ -9,6 +9,7 @@ import troca from '../../assets/img/troca.png'
 const TelaInicial = (props) => {
   return (
     <div>
+      <Escopo>
       <Tudao>
         <Header>
           <EstiloReset onClick={props.limpar} src={reset} />
@@ -18,20 +19,16 @@ const TelaInicial = (props) => {
         </Header>
         < ImgUser src={props.listaPerfis.photo} />
         <Description>
-          {props.listaPerfis.name}
-          <br></br>
-          {props.listaPerfis.age}
+          {props.listaPerfis.name}, {props.listaPerfis.age}
         </Description>
         <Descricao>{props.listaPerfis.bio}</Descricao>
         {/* Aqui está recebendo a props das funções dos botões de dislike, like e reset */}
         <EstiloBotoes>
           <EstiloDislike onClick={props.botaoDislike} src={dislike} />
           <EstiloLike onClick={props.botaoLike} src={like} />
-
-
-
         </EstiloBotoes>
       </Tudao>
+      </Escopo>
     </div>
   )
 }

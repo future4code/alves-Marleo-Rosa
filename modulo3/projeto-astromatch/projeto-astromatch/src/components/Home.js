@@ -27,6 +27,7 @@ function Home() {
                 return <TelaMatches
                     mudarTela={trocarTela}
                     lista={lista}
+                    limpar={limpar}
                 />
 
             default:
@@ -93,6 +94,7 @@ function Home() {
 
             .then(res => {
                 alert("Foi resetado!")
+                listarMatches()
             })
 
             .catch(err => alert('Problemas de conexão'))
