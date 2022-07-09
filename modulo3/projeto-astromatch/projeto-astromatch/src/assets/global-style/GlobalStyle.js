@@ -6,12 +6,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     max-width: 100vw;
     font-family: 'Open Sans', sans-serif;    
-
+    
 }
 
     button{
         cursor:pointer
     }
+
 `
 
 export default GlobalStyle

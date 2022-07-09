@@ -3,15 +3,18 @@ import axios from 'axios'
 import TelaInicial from '../pages/TelaInicial/TelaInicial'
 import TelaMatches from '../pages/TelaMatches/TelaMatches'
 
+//Aqui é os estados \/
 function Home() {
     const [listaPerfis, setListaPerfis] = useState({})
     const [trocaTela, setTrocaTela] = useState(true)
     const [lista, setLista] = useState([])
+    //Essa função é para eu fazer as trocas de tela (Inicial e de matches) \/
     function escolherTela() {
         switch (trocaTela) {
             case true:
                 return (
                     <TelaInicial
+                    //É assim que passamos as props \/
                         listarMatches={listarMatches}
                         listaPerfis={listaPerfis}
                         botaoDislike={botaoDislike}
@@ -34,11 +37,11 @@ function Home() {
 
         }
     }
-
+//A função de troca de tela \/
     function trocarTela() {
         setTrocaTela(!trocaTela)
     }
-
+//A função do axios para pegar os perfis na API \/
     const pegaPerfil = () => {
 
         axios
@@ -50,7 +53,7 @@ function Home() {
 
             .catch(err => alert('Problemas de conexão'))
     }
-
+//A função do axios para dar like nos perfis da API \/
     const deiLike = () => {
 
         axios
@@ -68,7 +71,7 @@ function Home() {
 
             .catch(err => alert('Problemas de conexão'))
     }
-
+//A função do axios para exibir os perfis que eu dei like e a API me deu like também \/
     const listarMatches = () => {
 
         axios
@@ -82,7 +85,7 @@ function Home() {
 
             .catch(err => alert('Problemas de conexão'))
     }
-
+//A função do axios para limpar a lista de matches na API \/
     const limpar = () => {
 
         axios
