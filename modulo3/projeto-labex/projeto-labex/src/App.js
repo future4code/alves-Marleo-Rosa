@@ -1,12 +1,15 @@
 import React from "react";
+// import { Router } from "react-router-dom";
+import { Router } from "./routes/Router";
 import GlobalStyle from "./assets/globalstyle/GlobalStyle";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 
-function App() {
+const App = () => {
   return (
     <div>
       <GlobalStyle />
-      <Home />
+      <Router />
+      {/* <Home /> */}
     </div>
   );
 }

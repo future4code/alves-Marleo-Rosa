@@ -9,10 +9,9 @@ const GlobalStyle = createGlobalStyle`
     
 }
 
-    button{
-        cursor:pointer
-    }
-
+button{
+    cursor:pointer
+}
 
 `
 
