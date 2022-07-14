@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Botoes, CampoForm, Escopo, Tudao } from '../PaginaMenu/styled'
 import { url_base } from '../../constants/url_base'
+import { paises } from '../../constants/paises'
+import useForm from '../../hooks/useForm'
 
 const PaginaInscrever = () => {
 
@@ -55,7 +57,7 @@ const PaginaInscrever = () => {
         setIdViagem(event.target.value)
     }
     const opcoes = viagens && viagens.map((trip) => {
-        return <option key={trip.id} value={trip.id}>{trip.id}</option>
+        return <option key={trip.id} value={trip.id}>{trip.name}</option>
     })
 
     const navigate = useNavigate()
@@ -94,6 +96,8 @@ const PaginaInscrever = () => {
                             value={form.applicationText}
                             onChange={onChange}
                             required
+                            pattern={'^.{30,}'}
+                            tittle="Mínimo 30 caracteres"
                         />
                         <input
                             placeholder={"Profissão"}

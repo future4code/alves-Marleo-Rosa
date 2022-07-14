@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 export const Escopo = styled.div`
 display: flex;
 justify-content: center;
@@ -54,5 +55,8 @@ export const StyleListaViagens = styled.div`
 `
 
 export const CampoForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
 
 `
