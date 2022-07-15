@@ -48,7 +48,7 @@ function Home() {
         axios
             .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/person`)
             .then(res => {
-                console.log(res.data.profile)
+                // console.log(res.data.profile)
                 setListaPerfis(res.data.profile)
             })
 
@@ -67,7 +67,10 @@ function Home() {
 
             .then(res => {
                 pegaPerfil()
-                console.log(res.data)
+                if (res.data.isMatch) {
+                    alert("Deu Match! 💖")
+                  }
+                // console.log(res.data)
             })
 
             .catch(err => alert('Problemas de conexão'))
@@ -79,7 +82,7 @@ function Home() {
             .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/matches`)
 
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setLista(res.data.matches)
                 setTrocaTela(false)
             })
@@ -93,7 +96,7 @@ function Home() {
             .put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marleo-piber-alves/clear`)
 
             .then(res => {
-                alert("Foi resetado!")
+                alert("Foi resetado! 🔃")
                 listarMatches()
             })
 
@@ -101,19 +104,18 @@ function Home() {
     }
 
     useEffect(() => {
-        console.log("useEffect")
         pegaPerfil()
         // < TelaMatches />
     }, [])
 
     const botaoDislike = () => {
         pegaPerfil()
-        console.log("Botão dislike")
+        // console.log("Botão dislike")
     }
 
     const botaoLike = () => {
         deiLike()
-        console.log("Botão Like")
+        // console.log("Botão Like")
     }
     return (
         <div
