@@ -33,3 +33,6 @@ export const Botoes = styled.button`
   flex-direction: row;
   align-items: center;
 `
+export const CardNomeViagem = styled.div`
+
+`
