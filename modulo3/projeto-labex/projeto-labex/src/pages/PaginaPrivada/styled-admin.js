@@ -14,7 +14,7 @@ export const Tudao = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 25%;
+  width: 50%;
   color: aliceblue;
   /* width: 375px; */
   height: 600px;
@@ -23,6 +23,7 @@ export const Tudao = styled.div`
   /* background-color: #ec69b5; */
   background: rgb(63,94,251);
   background: radial-gradient(circle, rgba(63,94,251,1) 38%, rgba(9,8,8,1) 100%);
+  overflow: auto;
   @media screen and (max-device-width : 480px){
   width: 90%;
   }
@@ -35,4 +36,17 @@ export const Botoes = styled.button`
 `
 export const CardNomeViagem = styled.div`
 
+`
+
+export const StyleListaViagens = styled.div`
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 100vw;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
+  color: white;
+  margin-bottom: 15px;
+  padding: 15px;
 `

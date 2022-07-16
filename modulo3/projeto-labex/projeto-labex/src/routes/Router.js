@@ -8,6 +8,7 @@ import CriarViagem from '../pages/PaginaPrivada/CriarViagem'
 import Login from '../pages/PaginaPrivada/Login'
 import Logout from '../pages/PaginaPrivada/Logout'
 import { PaginaErro } from '../pages/PaginaErro/PaginaErro'
+import DetalhesViagens from '../pages/PaginaPrivada/DetalhesViagens'
 
 export const Router = () => {
     return (
@@ -18,6 +19,7 @@ export const Router = () => {
                 <Route path="PainelAdmin" element={<PainelAdmin />} />
                 <Route path="PaginaInscrever" element={<PaginaInscrever />} />
                 <Route path="CriarViagem" element={<CriarViagem />} />
+                <Route path="DetalhesViagens" element={<DetalhesViagens />} />
                 <Route path="Login" element={<Login />} />
                 <Route path="Logout" element={<Logout />} />
                 <Route path="*" element={<PaginaErro />} />
