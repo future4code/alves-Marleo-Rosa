@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { url_base } from '../../constants/url_base'
 import { CampoForm } from '../PaginaMenu/styled'
-import { Botoes, Escopo, Tudao } from './styled-admin'
+import { Botoes, BotãoEstiloso, Escopo, Tudao } from './styled-admin'
 
 const Login = () => {
 
@@ -60,8 +60,8 @@ const Login = () => {
                         />
                     </CampoForm>
                     <Botoes>
-                        <button onClick={goBack}>Voltar</button>
-                        <button onClick={onSubmitLogin} >Login</button>
+                        <BotãoEstiloso onClick={goBack}>Voltar</BotãoEstiloso>
+                        <BotãoEstiloso onClick={onSubmitLogin} >Login</BotãoEstiloso>
                     </Botoes>
                 </Tudao>
             </Escopo>

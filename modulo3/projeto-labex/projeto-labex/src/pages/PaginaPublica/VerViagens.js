@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { Botoes, Escopo, StyleH3, StyleListaViagens, Tudao } from '../PaginaMenu/styled'
+import { Botoes, BotãoEstiloso, Escopo, ListaPublica, StyleH3, StyleListaViagens, Tudao } from '../PaginaMenu/styled'
 import { url_base } from "../../constants/url_base";
 
 //Lógica do Router
@@ -48,14 +48,14 @@ const VerViagens = () => {
         <div>
             <Escopo>
                 <Tudao>
-                    <Botoes>
-                        <button onClick={goBack}>Voltar</button>
-                        <button onClick={goToPaginaInscrever}>Inscrever-se</button>
-                    </Botoes>
                     <StyleH3>
                         <h3>Lista de Viagens</h3>
                     </StyleH3>
                     {listaViagens}
+                    <Botoes>
+                        <BotãoEstiloso onClick={goBack}>Voltar</BotãoEstiloso>
+                        <BotãoEstiloso onClick={goToPaginaInscrever}>Inscrever-se</BotãoEstiloso>
+                    </Botoes>
                 </Tudao>
             </Escopo>
         </div>

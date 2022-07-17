@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { Botoes, CampoForm, Escopo, Tudao } from '../PaginaMenu/styled'
+import { Botoes, BotãoEstiloso, CampoForm, Escopo, Tudao } from '../PaginaMenu/styled'
 import { url_base } from '../../constants/url_base'
 import { paises } from '../../constants/paises'
 import useForm from '../../hooks/useForm'
@@ -82,7 +82,7 @@ const PaginaInscrever = () => {
                             {opcoes}
                         </select>
                         <input
-                            placeholder={"idade"}
+                            placeholder={"Idade"}
                             type={"number"}
                             name={"age"}
                             value={"form.age"}
@@ -120,8 +120,8 @@ const PaginaInscrever = () => {
                         </select>
                     </CampoForm>
                     <Botoes>
-                        <button onClick={goBack}>Voltar</button>
-                        <button>Enviar</button>
+                        <BotãoEstiloso onClick={goBack}>Voltar</BotãoEstiloso>
+                        <BotãoEstiloso>Enviar</BotãoEstiloso>
                     </Botoes>
                 </Tudao>
             </Escopo>

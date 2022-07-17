@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Botoes, Escopo, StyleListaViagens, Tudao } from './styled-admin'
+import { Botoes, BotãoEstiloso, Escopo, StyleListaViagens, Tudao } from './styled-admin'
 import { url_base } from '../../constants/url_base'
 import axios from 'axios'
 import { useProtectedPage } from '../../hooks/useProtectPage'
@@ -22,7 +22,7 @@ const PainelAdmin = () => {
     }
 
     const goBack = () => {
-        navigate(-1)
+        navigate("/")
     }
 
 
@@ -84,9 +84,9 @@ const PainelAdmin = () => {
                     <h4>Lista de viagens:</h4>
                     {listaViagens}
                     <Botoes>
-                        <button onClick={goBack}>Voltar</button>
-                        <button onClick={goToCriarViagem}>Criar Viagem</button>
-                        <button onClick={goToLogout}>Logout</button>
+                        <BotãoEstiloso onClick={goBack}>Voltar</BotãoEstiloso>
+                        <BotãoEstiloso onClick={goToCriarViagem}>Criar Viagem</BotãoEstiloso>
+                        <BotãoEstiloso onClick={goToLogout}>Logout</BotãoEstiloso>
                     </Botoes>
                 </Tudao>
             </Escopo>
