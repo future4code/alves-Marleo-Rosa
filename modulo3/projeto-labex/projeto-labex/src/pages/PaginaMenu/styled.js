@@ -17,11 +17,9 @@ export const Tudao = styled.div`
   justify-content: space-between;
   width: 50%;
   color: aliceblue;
-  /* width: 375px; */
   height: 600px;
   border-radius: 10px;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
-  /* background-color: #ec69b5; */
   background: #00aafe;
   background: radial-gradient(circle, #0086fcff 38%, rgba(9,8,8,1) 100%);
   overflow: auto;

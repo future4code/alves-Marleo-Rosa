@@ -10,23 +10,18 @@ background-image: url(https://www.nasa.gov/sites/default/files/styles/full_width
 `
 
 export const Tudao = styled.div`
-  /* box-sizing: border-box; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 50%;
   color: aliceblue;
-  /* width: 375px; */
   height: 600px;
   border-radius: 10px;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
-  /* background-color: #ec69b5; */
   background: rgb(63,94,251);
   background: radial-gradient(circle, rgba(63,94,251,1) 38%, rgba(9,8,8,1) 100%);
   overflow: auto;
-  /* background-image: url(https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/main_image_deep_field_smacs0723-1280.jpg?itok=6-LM40Qf); */
-
   @media screen and (max-device-width : 480px){
   width: 90%;
   }
@@ -42,11 +37,11 @@ export const StyleListaViagens = styled.div`
   flex-direction: column;
   align-items: center;
   width: 90%;
-  /* height: 100vw; */
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
   color: white;
   margin-bottom: 15px;
   padding: 15px;
+  cursor: pointer;
   :hover p{
     color: #0295ff;
   }

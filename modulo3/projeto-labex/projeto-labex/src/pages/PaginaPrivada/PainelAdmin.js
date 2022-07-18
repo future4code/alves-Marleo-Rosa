@@ -31,7 +31,6 @@ const PainelAdmin = () => {
         axios
             .get(`${url_base}/trips`)
             .then(res => {
-                // console.log(res.data)
                 setViagens(res.data.trips)
             })
             .catch(err => alert(`Problemas de conexão, tente novamente em instantes.`))

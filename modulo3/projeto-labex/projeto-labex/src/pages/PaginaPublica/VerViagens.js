@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { Botoes, BotãoEstiloso, Escopo, ListaPublica, StyleH3, StyleListaViagens, Tudao } from '../PaginaMenu/styled'
+import { Botoes, BotãoEstiloso, Escopo, StyleH3, StyleListaViagens, Tudao } from '../PaginaMenu/styled'
 import { url_base } from "../../constants/url_base";
 
 //Lógica do Router
@@ -23,7 +23,6 @@ const VerViagens = () => {
         axios
             .get(`${url_base}/trips`)
             .then(res => {
-                // console.log(res.data)
                 setViagens(res.data.trips)
             })
             .catch(err => alert(`Problemas de conexão`))
