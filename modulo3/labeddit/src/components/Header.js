@@ -1,17 +1,20 @@
 import React from 'react'
-import { DivHeader, BotaoHeader } from './styled'
+import { DivHeader, BotaoHeader, ContainerHeader } from './styled'
 import { goToLogin, goToRecipesList } from "../routes/coordinator"
 import { useNavigate } from "react-router-dom"
 
-export const Header = () => {
+const Header = () => {
     const navigate = useNavigate()
     return (
-        <DivHeader>
-            <BotaoHeader>
-                <button onClick={() => goToRecipesList(navigate)}>LabEddit</button>
-                <button onClick={() => goToLogin(navigate)}>Login</button>
-            </BotaoHeader>
-            <p>LabEddit - Aqui é o Header</p>
-        </DivHeader>
+        <ContainerHeader>
+            <DivHeader>
+                <BotaoHeader>
+                    <button onClick={() => goToRecipesList(navigate)}>LabEddit</button>
+                    <button onClick={() => goToLogin(navigate)}>Login</button>
+                </BotaoHeader>
+            </DivHeader>
+        </ContainerHeader>
     )
 }
+
+export default Header

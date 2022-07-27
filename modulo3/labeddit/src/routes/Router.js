@@ -1,5 +1,6 @@
 // import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Header from "../components/Header"
 import AddRecipePage from "../pages/AddRecipesPages/AddRecipesPage"
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
@@ -10,6 +11,7 @@ import SignUpPage from "../pages/SignUpPage/SignUpPage"
 export const Router = () => {
     return (
         <BrowserRouter>
+            <Header />
             <Routes>
                 <Route index element={<RecipeListPage />} />
                 <Route path="adicionar-receita" element={<AddRecipePage />} />
