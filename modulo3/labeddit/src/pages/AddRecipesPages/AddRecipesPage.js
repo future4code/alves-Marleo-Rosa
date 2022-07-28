@@ -1,7 +1,7 @@
 import React from "react"
 import useProtectPage from "../../hooks/useProtectPage"
 
-const AddRecipePage = () => {
+const AddRecipesPage = () => {
     useProtectPage()
     return (
         <div>
@@ -10,4 +10,4 @@ const AddRecipePage = () => {
     )
 }
 
-export default AddRecipePage
+export default AddRecipesPage
