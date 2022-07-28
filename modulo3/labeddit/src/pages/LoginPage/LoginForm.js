@@ -4,14 +4,14 @@ import useForm from "../../hooks/useForm"
 import { login } from "../../services/user"
 import { useNavigate } from 'react-router-dom'
 
-const LoginForm = () => {
+const LoginForm = ({ setRightButtonText }) => {
     const { form, handleInputChange, clear } = useForm({ email: "", password: "" })
     const navigate = useNavigate()
 
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login(form, clear, navigate)
+        login(form, clear, navigate, setRightButtonText)
     }
 
 

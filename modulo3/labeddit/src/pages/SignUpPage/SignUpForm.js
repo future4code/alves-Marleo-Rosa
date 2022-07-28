@@ -4,14 +4,14 @@ import useForm from "../../hooks/useForm"
 import { useNavigate } from 'react-router-dom'
 import { signUp } from '../../services/user'
 
-const SignUpForm = () => {
+const SignUpForm = ({ setRightButtonText }) => {
     const navigate = useNavigate()
 
-    const { form, handleInputChange, clear } = useForm({ name: "", email: "", password: "" })
+    const { form, handleInputChange, clear } = useForm({ username: "", email: "", password: "" })
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        signUp(form, clear, navigate)
+        signUp(form, clear, navigate, setRightButtonText)
     }
 
     return (
@@ -19,8 +19,8 @@ const SignUpForm = () => {
             <form onSubmit={onSubmitForm}>
                 <TextField
                     placeholder='Nome:'
-                    name="name"
-                    value={form.name}
+                    name="username"
+                    value={form.username}
                     onChange={handleInputChange}
                     type="name"
                     required
