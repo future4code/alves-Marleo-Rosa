@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const useRequestData = (initialData, url) => {
+    // console.log("Entrei aqui no useRequestData")
     const [data, setData] = useState(initialData)
     useEffect(() => {
         axios

@@ -4,6 +4,7 @@ export const Geral = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100vw;
+  /* border: solid #00bbff; */
   /* height: 100vh; */
   overflow-x: hidden;
   box-sizing: border-box;

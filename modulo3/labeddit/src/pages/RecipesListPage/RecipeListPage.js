@@ -2,26 +2,34 @@ import React from 'react'
 import useProtectPage from '../../hooks/useProtectPage'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from "../../constants/urls"
-import { AddPost, Card, CurtidaCard, Geral, Grid, Main, TextoCard, TituloCard } from './styled'
+import { AddPost, Card, CurtidaCard, Geral, Main, TextoCard, TituloCard } from './styled'
 import AddRecipesPage from '../AddRecipesPages/AddRecipesPage'
 import { goToRecipeDetail } from '../../routes/coordinator'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import NovaPostagem from '../../components/NovaPostagem'
 
 const RecipeListPage = () => {
     useProtectPage()
     const navigate = useNavigate()
-
     const recipes = useRequestData([], `${BASE_URL}/posts`)
-    // console.log(recipes)
+
+    const onClickCard = (id) => {
+        goToRecipeDetail(navigate, id)
+    }
+
 
     const recipeCards = recipes.map((recipe) => {
         return (
             <Geral>
                 <Main>
                     <AddPost>
-                        <AddRecipesPage />
+                        {/* <NovaPostagem/> */}
+                        {/* <AddRecipesPage /> */}
                     </AddPost>
-                    <Card onClick={() => goToRecipeDetail(navigate)}>
+                    <Card
+                        key={recipe.id}
+                        onClick={() => onClickCard(recipe.id)}>
                         <TituloCard>
                             {recipe.username}
                         </TituloCard>
@@ -36,6 +44,8 @@ const RecipeListPage = () => {
             </Geral>
         )
     })
+    console.log(recipeCards)
+
     return (
         <div>
             {recipeCards}

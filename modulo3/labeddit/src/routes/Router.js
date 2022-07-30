@@ -14,7 +14,7 @@ export const Router = ({ setRightButtonText }) => {
             <Route index element={<RecipeListPage />} />
             <Route path="adicionar-receita" element={<AddRecipePage />} />
             <Route path="login" element={<LoginPage setRightButtonText={setRightButtonText} />} />
-            <Route path="detalhe" element={<RecipeDetailPage />} />
+            <Route path="detalhe/:id" element={<RecipeDetailPage />} />
             <Route path="cadastro" element={<SignUpPage setRightButtonText={setRightButtonText} />} />
             <Route path="*" element={<ErrorPage />} />
         </Routes>

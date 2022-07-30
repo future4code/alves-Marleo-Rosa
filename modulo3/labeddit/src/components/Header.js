@@ -1,7 +1,8 @@
 import React from 'react'
-import { DivHeader, BotaoHeader, ContainerHeader } from './styled'
+import { DivHeader, BotaoHeader, ContainerHeader, BotaoLoginLogout, LogoImage } from './styled'
 import { goToLogin, goToRecipesList } from "../routes/coordinator"
 import { useNavigate } from "react-router-dom"
+import logo from "../assets/img/logo.png"
 
 const Header = ({ rightButtonText, setRightButtonText }) => {
     const token = localStorage.getItem("token")
@@ -24,10 +25,12 @@ const Header = ({ rightButtonText, setRightButtonText }) => {
     return (
         <ContainerHeader>
             <DivHeader>
-                <BotaoHeader>
-                    <button onClick={() => goToRecipesList(navigate)}>LabEddit</button>
-                    <button onClick={rightButtonAction}>{rightButtonText}</button>
-                </BotaoHeader>
+                <BotaoHeader onClick={() => goToRecipesList(navigate)}>LabEddit</BotaoHeader>
+                <LogoImage src={logo} />
+
+                <BotaoLoginLogout onClick={rightButtonAction}>{rightButtonText}</BotaoLoginLogout>
+                    {/* <button </button> */}
+
             </DivHeader>
         </ContainerHeader>
     )
