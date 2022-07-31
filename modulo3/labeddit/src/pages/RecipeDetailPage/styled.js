@@ -28,7 +28,7 @@ export const Card = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 10px;
-  width: 300px;
+  width: 364px;
   height: 160px;
   /* left: 0px; */
   /* top: 0px; */
@@ -107,4 +107,9 @@ export const BotaoComentario = styled.div`
     display: flex;
     width: 350px;
   }
+`
+
+export const Linha = styled.div`
+  width: 360px;
+  border: 1px solid #FF6489; 
 `

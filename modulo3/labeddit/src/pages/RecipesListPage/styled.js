@@ -28,7 +28,7 @@ export const Card = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 10px;
-  width: 300px;
+  width: 364px;
   height: 160px;
   /* left: 0px; */
   /* top: 0px; */

@@ -5,7 +5,7 @@ import { BASE_URL } from '../../constants/urls'
 import useRequestData from '../../hooks/useRequestData'
 import PostComment from '../../hooks/PostComment'
 import useForm from '../../hooks/useForm'
-import { AddPost, BotaoComentario, CampoComentar, Card, Geral, Main } from './styled'
+import { AddPost, BotaoComentario, CampoComentar, Card, Geral, Linha, Main } from './styled'
 
 const RecipeDetailPage = () => {
     useProtectPage()
@@ -64,7 +64,6 @@ const RecipeDetailPage = () => {
             {recipeCards}
             {/* <input onChange={handleInputChange} value={form.body} /> */}
             <form onSubmit={onSubmitForm}>
-            {/* <CampoComentar> */}
                 <CampoComentar
                     placeholder='Adicionar comentário'
                     name="body"
@@ -73,12 +72,12 @@ const RecipeDetailPage = () => {
                     type="text"
                     required
                 />
-                {/* </CampoComentar> */}
                 </form>
-                <BotaoComentario
-                    type='submit'
+            <BotaoComentario
+                type='submit'
                 >Responder
-                </BotaoComentario>
+            </BotaoComentario>
+            <Linha/>
         </AddPost>
     )
 }
