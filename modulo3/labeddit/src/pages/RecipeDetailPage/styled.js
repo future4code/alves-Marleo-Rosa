@@ -42,6 +42,26 @@ export const Card = styled.div`
     width: 100%;
   }
 `
+export const CardComment = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 364px;
+  height: 160px;
+  /* left: 0px; */
+  /* top: 0px; */
+  background: #E0E0E0;
+  border: solid 1px #E0E0E0;
+  border-radius: 12px;
+  /* box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19); */
+  @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    width: 100%;
+  }
+`
 
 export const TituloCard = styled.div`
 

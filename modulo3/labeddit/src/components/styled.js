@@ -73,3 +73,27 @@ export const BotaoLoginLogout = styled.div`
         background-color: #1261a6;
     }
 `
+export const InputPostar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 36
+`
+export const InputPostarTitulo = styled.input`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 36
+`
+export const InputTextArea = styled.input`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 36
+`

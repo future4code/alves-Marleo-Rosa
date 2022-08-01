@@ -7,7 +7,7 @@ import AddRecipesPage from '../AddRecipesPages/AddRecipesPage'
 import { goToRecipeDetail } from '../../routes/coordinator'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import NovaPostagem from '../../components/NovaPostagem'
+import NovaPostagem from "../../components/NovaPostagem"
 
 const RecipeListPage = () => {
     useProtectPage()
@@ -19,12 +19,13 @@ const RecipeListPage = () => {
     }
 
 
+
     const recipeCards = recipes.map((recipe) => {
         return (
             <Geral>
                 <Main>
                     <AddPost>
-                        {/* <NovaPostagem/> */}
+                        <NovaPostagem />
                         {/* <AddRecipesPage /> */}
                     </AddPost>
                     <Card

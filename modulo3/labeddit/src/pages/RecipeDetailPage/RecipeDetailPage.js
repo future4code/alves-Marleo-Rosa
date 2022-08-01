@@ -5,19 +5,30 @@ import { BASE_URL } from '../../constants/urls'
 import useRequestData from '../../hooks/useRequestData'
 import PostComment from '../../hooks/PostComment'
 import useForm from '../../hooks/useForm'
-import { AddPost, BotaoComentario, CampoComentar, Card, Geral, Linha, Main } from './styled'
+import { AddPost, BotaoComentario, CampoComentar, Card, CardComment, Geral, Linha, Main } from './styled'
+import MostrarComentarios from '../../hooks/MostrarComentarios'
 
 const RecipeDetailPage = () => {
     useProtectPage()
     const params = useParams()
     const recipes = useRequestData([], `${BASE_URL}/posts`)
+
+    const VerComentarios = MostrarComentarios([], `${BASE_URL}/posts`)
+
     const { form, handleInputChange, clear } = useForm({ body: "" })
     // recipes && console.log(recipes)
     const detalhesPost = recipes.filter((posts) => {
         return posts.id === params.id
     })
 
-
+    const exibirComentarios = detalhesPost.map((comments) => {
+        return (
+            <CardComment>
+                {comments.username}
+                {comments.body}
+            </CardComment>
+        )
+    })
     // usePostData(`${BASE_URL}/posts/${params.id}/comments`, form)
     // const comentariosPosts = usePostData([], `${BASE_URL}/posts/${params.id}/comments`, form)
 
@@ -72,12 +83,13 @@ const RecipeDetailPage = () => {
                     type="text"
                     required
                 />
-                </form>
+            </form>
             <BotaoComentario
                 type='submit'
-                >Responder
+            >Responder
             </BotaoComentario>
-            <Linha/>
+            <Linha />
+            {exibirComentarios}
         </AddPost>
     )
 }
