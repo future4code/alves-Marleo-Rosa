@@ -1,0 +1,14 @@
+{
+  "name": "package-json",
+  "version": "1.0.0",
+  "description": "Aula Node e Packagejson",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./exercicio1.js"
+  },
+  "author": "Márleo Piber",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
