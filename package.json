@@ -4,7 +4,9 @@
   "description": "Aula Node e Packagejson",
   "main": "index.js",
   "scripts": {
-    "start": "node ./exercicio2.js"
+    "startEx1": "node ./exercicio1.js",
+    "startEx2": "node ./exercicio2.js",
+    "startEx3": "node ./exercicio3.js"
   },
   "author": "Márleo Piber",
   "license": "ISC",
