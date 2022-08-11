@@ -1,0 +1,20 @@
+{
+  "name": "templateAPIsREST",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "startEx1": "tsc && node ./build/exercicio1.js",
+    "startEx2": "tsc && node ./build/exercicio2.js",
+    "startEx3": "tsc && node ./build/exercicio3.js",
+    "startEx4": "tsc && node ./build/exercicio4.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
