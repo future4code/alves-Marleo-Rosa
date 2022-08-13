@@ -12,7 +12,8 @@
     "exercicio3": "clear && tsc && node ./build/ex3/exercicio3.js",
     "exercicio4": "clear && tsc && node ./build/ex4/exercicio4.js",
     "exercicio5": "clear && tsc && node ./build/ex5/exercicio5.js",
-    "exercicio6": "clear && tsc && node ./build/ex6/exercicio6.js"
+    "exercicio6": "clear && tsc && node ./build/ex6/exercicio6.js",
+    "exercicio7": "clear && tsc && node ./build/ex7/exercicio7.js"
   },
   "author": "Márleo Piber",
   "license": "ISC",
