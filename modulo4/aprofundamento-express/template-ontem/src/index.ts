@@ -1,4 +1,4 @@
-import express from "express"
+import express, { Request, Response } from "express"
 import cors from "cors"
 import { users } from "./data"
 
@@ -106,7 +106,7 @@ type Afazeres = {
 }
 
 //ex3
-const afazeres: Afazeres[] =
+let afazeres: Afazeres[] =
   [
     {
       userId: 1,
@@ -159,3 +159,20 @@ app.post("/afazeres", (req, res) => {
 })
 
 //ex6
+// app.put("/modAfazeres/:id/:value", (req: Request, res: Response) => {
+//   let idUser = Number(req.params.id)
+//   let idAfazeres = Number(req.params.value)
+//   let modifica = afazeres.find(item => item.userId === idUser && item.id === idAfazeres)
+//   if (modifica) { }
+//   { modifica?.completed = !modifica?.completed }
+//   res.send({ "Modificado!": afazeres })
+// })
+
+//ex7
+app.delete("/afazeres/:id/:afazeresid", (req: Request, res: Response) => {
+  let idUser = Number(req.params.userId)
+  let idAfazeres = Number(req.params.id)
+  let searchId = afazeres.filter(item => item.userId !== idUser && item.id !== idAfazeres)
+  afazeres = searchId
+  res.end("Afazer apagado!")
+})
