@@ -97,6 +97,17 @@ app.put("/users/saldar", (req: Request, res: Response) => {
     }
 })
 
+// Transferir dinheiro
+// app.put("/users/transfer", (req: Request, res: Response) => {
+//     try {
+//         const (nome, cpf, nomeRecebedor, cpfRecebedor, valorRecebedor) = req.body
+//         const usuario = usuarios.find((usuario) => usuario.cpf === cpf && usuario.nome === nome)
+//         const usuarioRecebedor = usuarios.find((usuario) => usuario.cpf === cpfRecebedor)
+//     } catch (error) {
+
+//     }
+// })
+
 app.listen(3003, () => {
     console.log("Server is running in http://localhost:3003")
 });
