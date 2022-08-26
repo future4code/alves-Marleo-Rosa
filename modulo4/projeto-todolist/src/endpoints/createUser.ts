@@ -15,6 +15,8 @@ export default async function createUser(
             res
                 .status(400)
                 .send('Preencha os campos "name", "nickname" e "email"')
+                
+                return
         }
         // consultar o banco de dados
         const id: string = Date.now() + Math.random().toString() // o Date.now gera um número com o horário de criação do id, + o Match.random pra pegar um número aleatório e transformamos o número em string
