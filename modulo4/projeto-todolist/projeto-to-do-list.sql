@@ -5,12 +5,12 @@ CREATE TABLE TodoListUser (
     email VARCHAR(255) UNIQUE NOT NULL
 );
 CREATE TABLE TodoListTask (
-		id VARCHAR(255) PRIMARY KEY, 
+	id VARCHAR(255) PRIMARY KEY, 
     title VARCHAR(255) NOT NULL, 
     description TEXT NOT NULL, 
+	deadline DATE NOT NULL,
     status VARCHAR(255) NOT NULL DEFAULT "to_do",
-    limit_date DATE NOT NULL,
-    creator_user_id varchar(255) NOT NULL,
+    authorId varchar(255) NOT NULL,
     FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
 );
 CREATE TABLE TodoListResponsibleUserTaskRelation (
@@ -19,5 +19,6 @@ CREATE TABLE TodoListResponsibleUserTaskRelation (
     FOREIGN KEY (task_id) REFERENCES TodoListTask(id),
     FOREIGN KEY (responsible_user_id) REFERENCES TodoListUser(id)
 );
-DESCRIBE TodoListResponsibleUserTaskRelation;
+DESCRIBE TodoListTask;
 SELECT * FROM TodoListUser;
+SELECT * FROM TodoListTask;
