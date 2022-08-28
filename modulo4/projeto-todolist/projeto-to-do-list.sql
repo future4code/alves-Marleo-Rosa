@@ -11,7 +11,7 @@ CREATE TABLE TodoListTask (
 	deadline DATE NOT NULL,
     status VARCHAR(255) NOT NULL DEFAULT "to_do",
     authorId varchar(255) NOT NULL,
-    FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
+    FOREIGN KEY (authorId) REFERENCES TodoListUser(id)
 );
 CREATE TABLE TodoListResponsibleUserTaskRelation (
 		task_id VARCHAR(255),
@@ -22,3 +22,9 @@ CREATE TABLE TodoListResponsibleUserTaskRelation (
 DESCRIBE TodoListTask;
 SELECT * FROM TodoListUser;
 SELECT * FROM TodoListTask;
+ALTER TABLE TodoListTask 
+CHANGE limit_date deadline Date;
+
+SELECT tasks.*, users.nickname FROM TodoListTask AS tasks
+JOIN TodoListUser AS users
+ON authorId = users.id;
