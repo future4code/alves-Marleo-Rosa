@@ -2,7 +2,11 @@ POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-    "name": "fulano",
-    "email": "fulano@gmail.com",
-    "password": "123fulano"
+    "name": "Renato Portaluppi",
+    "email": "renato@gmail.com",
+    "password": "123renato"
 }
+
+###
+
+GET http://localhost:3003/users

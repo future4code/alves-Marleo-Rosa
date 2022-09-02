@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import insertUser from "../data/insertUser";
-import { userInput, userInsert } from "../types";
+import { userData, userInput } from "../types";
 
 export default async function createUser(req: Request, res: Response) {
     try {
@@ -11,7 +11,7 @@ export default async function createUser(req: Request, res: Response) {
             throw new Error("O name, email e password devem ser passados");
         }
 
-        const userInsert: userInsert = {
+        const userInsert: userData = {
             id: Date.now().toString(),
             name,
             email,
@@ -21,7 +21,7 @@ export default async function createUser(req: Request, res: Response) {
         const anwser = await insertUser(userInsert)
 
         res.status(201).send({ message: anwser })
-        
+
     } catch (error: any) {
         res.status(500).send({ message: error.message })
     }

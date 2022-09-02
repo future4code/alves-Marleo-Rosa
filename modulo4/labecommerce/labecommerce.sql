@@ -5,6 +5,8 @@ create table labecommerce_users(
 	password varchar(255) not null
 );
 
+select * from labecommerce_users;
+
 create table labecommerce_products(
 	id varchar(255) primary key,
     name varchar(255) not null,

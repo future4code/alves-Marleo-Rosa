@@ -1,7 +1,7 @@
 import connection from "../connection";
-import { userInsert } from "../types";
+import { userData } from "../types";
 
-export default async function insertUser(insertUser: userInsert): Promise<string> {
+export default async function insertUser(insertUser: userData): Promise<string> {
 
     const { id, name, email, password } = insertUser
 
