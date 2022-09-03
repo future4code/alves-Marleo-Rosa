@@ -10,3 +10,14 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "esátua Reinato",
+    "price": 99,
+    "image_url": "www.gremio.net"
+}

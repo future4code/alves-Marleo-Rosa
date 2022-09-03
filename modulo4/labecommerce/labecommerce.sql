@@ -14,6 +14,8 @@ create table labecommerce_products(
     image_url varchar(255) not null
 );
 
+select * from labecommerce_products;
+
 create table labecommerce_purchases(
 	id varchar(255) primary key,
     user_id varchar(255) not null,
