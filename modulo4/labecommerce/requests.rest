@@ -1,0 +1,38 @@
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Renato Portaluppi",
+    "email": "renato@gmail.com",
+    "password": "123renato"
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "estátua Reinato",
+    "price": 99,
+    "image_url": "www.gremio.net"
+}
+
+###
+
+GET http://localhost:3003/products
+
+###
+
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId": "1662085192116",
+    "productId": "1662210378025",
+    "quantity": 3
+}
