@@ -1,39 +1,37 @@
-// import User from "../model/User";
-// import { BaseDatabase } from "./BaseDatabase";
+import User from "../model/User";
+import { BaseDatabase } from "./BaseDatabase";
 
-// export class UserDatabase extends BaseDatabase {
+export class UserDatabase extends BaseDatabase {
 
-//     public async createUser(user: User) {
+    public async createUser(user: User) {
 
-//         await this.getConnection().insert({
-//             id: user.getId(),
-//             name: user.getName(),
-//             nickname: user.getNickName(),
-//             email: user.getEmail(),
-//             password: user.getPassword()
-//         }).into("to_do_list_users")
-//     }
+        await this.getConnection().insert({
+            id: user.getId(),
+            email: user.getEmail(),
+            password: user.getPassword()
+        }).into("User")
+    }
 
-//     public async edit(id: string, nickname: string) {
-//         await this.getConnection().update({ nickname }).into("to_do_list_users").where({ id })
-//     }
+    public async edit(id: string, nickname: string) {
+        await this.getConnection().update({ nickname }).into("to_do_list_users").where({ id })
+    }
 
-//     public async getUserByEmail(email: string) {
-//         const result = await this.getConnection()
-//             .select("*")
-//             .from("to_do_list_users")
-//             .where({ email: email })
+    public async getUserByEmail(email: string) {
+        const result = await this.getConnection()
+            .select("*")
+            .from("to_do_list_users")
+            .where({ email: email })
 
-//         return result
-//     }
+        return result
+    }
 
-//     public async getUserByPassword(senha: string) {
-//         const result = await this.getConnection()
-//             .select("*")
-//             .from("to_do_list_users")
-//             .where({ password: senha })
+    public async getUserByPassword(senha: string) {
+        const result = await this.getConnection()
+            .select("*")
+            .from("to_do_list_users")
+            .where({ password: senha })
 
-//         return result
-//     }
+        return result
+    }
 
-// }
+}
