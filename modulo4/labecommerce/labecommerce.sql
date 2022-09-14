@@ -24,4 +24,10 @@ create table labecommerce_purchases(
     total_price float not null,
     foreign key (user_id) references labecommerce_users(id),
 	foreign key (product_id) references labecommerce_products(id)
+ classes-encapsulamento
 );
+
+select * from labecommerce_purchases;
+=======
+);
+master
