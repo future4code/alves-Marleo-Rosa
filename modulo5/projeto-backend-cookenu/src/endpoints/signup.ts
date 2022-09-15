@@ -5,24 +5,24 @@ import Authenticator, { authenticatorData } from "../services/Authenticator";
 import GenerateId from "../services/GenerateId";
 import { HashManager } from "../services/HashManager";
 
-export async function signup(req: Request, res: Response): Promise<void> {
+export async function signup(req: Request, res: Response) {
     try {
         const { name, email, password, role } = req.body
 
         if (!name || !email || !password || !role) {
-            res.status(422).send("Insira corretamente as informações de 'name', 'email', 'password' e 'role'")
+            return res.status(422).send("Insira corretamente as informações de 'name', 'email', 'password' e 'role'")
         }
 
         if (password.length < 6) {
-            res.status(400).send("A senha deve ter no mínimo 6 caracteres")
+            return res.status(400).send("A senha deve ter no mínimo 6 caracteres")
         }
 
         const userDatabase = new UserDatabase()
         const user = await userDatabase.getUserByEmail(email)
 
-        // if (user) {
-        //     res.status(409).send('Esse email já está cadastrado!')
-        // }
+        if (user) {
+            return res.status(409).send('Esse email já está cadastrado!')
+        }
 
         const idGenerate = new GenerateId()
         const id = idGenerate.createId()
