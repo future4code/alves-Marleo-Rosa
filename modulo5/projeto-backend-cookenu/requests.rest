@@ -1,0 +1,9 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Renato Portaluppi", 
+   "email": "clara@react.com" ,
+   "password": "12345678",
+   "role": "NORMAL"
+}
