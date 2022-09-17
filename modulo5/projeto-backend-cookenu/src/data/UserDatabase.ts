@@ -1,3 +1,4 @@
+import { deleteUser } from "../endpoints/deleteUser";
 import { User, UserDB } from "../model/User";
 import { BaseDatabase } from "./BaseDatabase";
 
@@ -37,5 +38,12 @@ export class UserDatabase extends BaseDatabase {
             .from("users_cookenu")
 
         return result[0]
+    }
+
+    public async deleteUser(id: string) {
+        await this.getConnection()
+            .delete()
+            .from("users_cookenu")
+            .where({ id })
     }
 }
