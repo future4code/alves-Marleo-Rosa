@@ -1,3 +1,4 @@
+import { deleteRecipes } from "../endpoints/deleteRecipes"
 import Recipes, { RecipesDB } from "../model/Recipes"
 import { BaseDatabase } from "./BaseDatabase"
 
@@ -23,5 +24,12 @@ export class RecipesDataBase extends BaseDatabase {
             .from("recipes_cookenu")
 
         return result[0]
+    }
+
+    public async deleteRecipes(id: string) {
+        await this.getConnection()
+            .delete()
+            .from("recipes_cookenu")
+            .where({ id })
     }
 }
