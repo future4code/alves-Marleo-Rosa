@@ -34,8 +34,8 @@ import Authenticator from "../services/Authenticator";
 
 export async function deleteRecipes(req: Request, res: Response) {
     try {
-        const token = req.headers.authorization
-        const id = req.params.id
+        const token = req.headers.authorization // pessoa logada
+        const id = req.params.id // id da receita
 
         if (!token) {
             throw new MissingFields()
