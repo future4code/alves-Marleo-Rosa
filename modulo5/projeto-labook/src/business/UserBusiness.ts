@@ -1,7 +1,9 @@
 import { UserDatabase } from "../database/UserDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
+import { AuthorizationError } from "../errors/AuthorizationError"
+import { NotFoundError } from "../errors/NotFoundError"
 import { ParamsError } from "../errors/ParamsError"
-import { ILoginInputDTO, ISignupInputDTO, User, USER_ROLES } from "../models/User"
+import { IDeleteUsersInputDTO, ILoginInputDTO, ISignupInputDTO, User, USER_ROLES } from "../models/User"
 import { Authenticator, ITokenPayload } from "../services/Authenticator"
 import { HashManager } from "../services/HashManager"
 import { IdGenerator } from "../services/IdGenerator"
@@ -118,6 +120,44 @@ export class UserBusiness {
         const response = {
             message: "Login realizado com sucesso",
             token
+        }
+
+        return response
+    }
+
+    public deleteUser = async (input: IDeleteUsersInputDTO) => {
+        const token = input.token
+        const id = input.id
+
+        if (!token) {
+            throw new AuthorizationError()
+        }
+        if (!id) {
+            throw new Error("Informe a ID a ser deletada");
+        }
+
+        const userExist = await this.userDatabase.findById(id);
+        if (!userExist) {
+            throw new NotFoundError()
+        }
+
+        const payload = this.authenticator.getTokenPayload(token);
+        if (!payload) {
+            throw new Error("Token inválido");
+        }
+
+        if (payload.id === id) {
+            throw new Error("Você não pode remover a si mesmo");
+        }
+
+        if (payload.role !== USER_ROLES.ADMIN) {
+            throw new AuthorizationError()
+        }
+
+        await this.userDatabase.deleteUser(id);
+
+        const response = {
+            message: "Usuário deletado com sucesso!"
         }
 
         return response

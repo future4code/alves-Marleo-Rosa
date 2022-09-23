@@ -22,6 +22,11 @@ export interface ILoginInputDTO {
     password: string
 }
 
+export interface IDeleteUsersInputDTO {
+    token: string,
+    id: string
+}
+
 export class User {
     constructor(
         private id: string,

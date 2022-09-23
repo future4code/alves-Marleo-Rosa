@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { ILoginInputDTO, ISignupInputDTO } from "../models/User";
+import { IDeleteUsersInputDTO, ILoginInputDTO, ISignupInputDTO } from "../models/User";
 
 export class UserController {
     constructor(
@@ -31,6 +31,22 @@ export class UserController {
             }
 
             const response = await this.userBusiness.login(input)
+
+            res.status(200).send(response)
+
+        } catch (error: any) {
+            res.status(400).send({ message: error.message })
+        }
+    }
+
+    public deleteUser = async (req: Request, res: Response) => {
+        try {
+            const input: IDeleteUsersInputDTO = {
+                token: req.headers.authorization as string,
+                id: req.params.id
+            }
+
+            const response = await this.userBusiness.deleteUser(input)
 
             res.status(200).send(response)
 
