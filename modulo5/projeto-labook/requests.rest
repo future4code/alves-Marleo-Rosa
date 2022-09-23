@@ -2,7 +2,7 @@
 GET http://localhost:3003/ping
 
 
-### 1) signup
+### 1) Signup
 POST http://localhost:3003/users/signup
 Content-Type: application/json
 
@@ -11,4 +11,13 @@ Content-Type: application/json
     "email": "marleo@gmail.com",
     "password": "123456",
     "role": "ADMIN"
+}
+
+### 2) Login
+GET http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "marleo@gmail.com",
+    "password": "123456"
 }
