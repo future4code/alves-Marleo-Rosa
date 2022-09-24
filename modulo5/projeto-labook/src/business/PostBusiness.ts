@@ -1,6 +1,6 @@
 import { PostDatabase } from "../database/PostDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
-import { ICreatePostInputDTO, ICreatePostOutputDTO, Post } from "../models/Post"
+import { ICreatePostInputDTO, ICreatePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, Post } from "../models/Post"
 import { Authenticator } from "../services/Authenticator"
 import { HashManager } from "../services/HashManager"
 import { IdGenerator } from "../services/IdGenerator"
@@ -40,10 +40,41 @@ export class PostBusiness {
         )
 
         await this.postDatabase.createPost(post)
-        
+
         const response: ICreatePostOutputDTO = {
             message: "Post criado com sucesso",
             post
+        }
+        return response
+    }
+
+    public getPosts = async (input: IGetPostsInputDTO) => {
+        const { token } = input
+
+        const payload = this.authenticator.getTokenPayload(token)
+
+        if (!payload) {
+            throw new AuthenticationError()
+        }
+
+        const postsDB = await this.postDatabase.getPosts()
+
+        const posts = postsDB.map(postDB => {
+            return new Post(
+                postDB.id,
+                postDB.content,
+                postDB.user_id
+            )
+        })
+
+        for (let post of posts) {
+            const postId = post.getId()
+            const likes = await this.postDatabase.getLikes(postId)
+            post.setLikes(likes)
+        }
+
+        const response: IGetPostsOutputDTO = {
+            posts
         }
         return response
     }

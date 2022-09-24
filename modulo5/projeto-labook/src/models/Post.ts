@@ -62,3 +62,11 @@ export interface ICreatePostOutputDTO {
     message: string,
     post: Post
 }
+
+export interface IGetPostsInputDTO {
+    token: string
+}
+
+export interface IGetPostsOutputDTO {
+    posts: Post[]
+}

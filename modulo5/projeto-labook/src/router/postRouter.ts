@@ -19,4 +19,5 @@ const postController = new PostController(
 // criar endpoint para cadastrar post 
 
 postRouter.post("/", postController.createPost)
+postRouter.get("/", postController.getPosts)
 // etc
