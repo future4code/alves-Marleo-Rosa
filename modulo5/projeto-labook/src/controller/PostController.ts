@@ -1,8 +1,25 @@
+import { Request, Response } from "express";
 import { PostBusiness } from "../business/PostBusiness";
+import { ICreatePostInputDTO } from "../models/Post";
 
 export class PostController {
     constructor(
         private postBusiness: PostBusiness
-    ) {}
-// Criar request rest na função createPost
+    ) { }
+
+    public createPost = async (req: Request, res: Response) => {
+        try {
+            const input: ICreatePostInputDTO = {
+                token: req.headers.authorization,
+                content: req.body.content
+            }
+
+            const response = await this.postBusiness.createPost(input)
+            res.status(200).send(response)
+        } catch (error: any) {
+            res.status(400).send({ message: error.message })
+        }
+    }
+
+    // Criar request rest na função createPost
 }
