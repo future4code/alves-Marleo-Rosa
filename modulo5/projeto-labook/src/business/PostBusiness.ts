@@ -2,7 +2,7 @@ import { PostDatabase } from "../database/PostDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
 import { AuthorizationError } from "../errors/AuthorizationError"
 import { NotFoundError } from "../errors/NotFoundError"
-import { ICreatePostInputDTO, ICreatePostOutputDTO, IDeletePostInputDTO, IDeletePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, Post } from "../models/Post"
+import { IAddLikeInputDTO, IAddLikeOutputDTO, ICreatePostInputDTO, ICreatePostOutputDTO, IDeletePostInputDTO, IDeletePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, ILikeDB, Post } from "../models/Post"
 import { USER_ROLES } from "../models/User"
 import { Authenticator } from "../services/Authenticator"
 import { HashManager } from "../services/HashManager"
@@ -109,6 +109,44 @@ export class PostBusiness {
             message: "Post deletado com sucesso"
         }
 
+        return response
+    }
+
+    public addLike = async (input: IAddLikeInputDTO) => {
+        const { token, postId } = input
+
+        const payload = this.authenticator.getTokenPayload(token)
+
+        if (!payload) {
+            throw new AuthenticationError()
+        }
+
+        const postDB = await this.postDatabase.findPostById(postId)
+
+        if (!postDB) {
+            throw new NotFoundError()
+        }
+
+        const isAlreadyLiked = await this.postDatabase.findLike(
+            postId,
+            payload.id
+        )
+
+        if (isAlreadyLiked) {
+            throw new Error("Já deu like");
+        }
+
+        const likeDB: ILikeDB = {
+            id: this.idGenerator.generate(),
+            post_id: postId,
+            user_id: payload.id
+        }
+
+        await this.postDatabase.addLike(likeDB)
+
+        const response: IAddLikeOutputDTO = {
+            message: "Like realizado com sucesso"
+        }
         return response
     }
 }

@@ -79,3 +79,12 @@ export interface IDeletePostInputDTO {
 export interface IDeletePostOutputDTO {
     message: string
 }
+
+export interface IAddLikeInputDTO {
+    token: string,
+    postId: string
+}
+
+export interface IAddLikeOutputDTO {
+    message: string
+}

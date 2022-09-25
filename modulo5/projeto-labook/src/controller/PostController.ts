@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { PostBusiness } from "../business/PostBusiness";
-import { ICreatePostInputDTO, IDeletePostInputDTO, IGetPostsInputDTO } from "../models/Post";
+import { IAddLikeInputDTO, ICreatePostInputDTO, IDeletePostInputDTO, IGetPostsInputDTO } from "../models/Post";
 
 export class PostController {
     constructor(
@@ -48,5 +48,17 @@ export class PostController {
         }
     }
 
-    // Criar request rest na função createPost
+    public addLike = async (req: Request, res: Response) => {
+        try {
+            const input: IAddLikeInputDTO = {
+                token: req.headers.authorization,
+                postId: req.params.id
+            }
+
+            const response = await this.postBusiness.addLike(input)
+            res.status(200).send(response)
+        } catch (error) {
+            res.status(400).send({ message: error.message })
+        }
+    }
 }
