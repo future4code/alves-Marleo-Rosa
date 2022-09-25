@@ -40,4 +40,19 @@ export class PostDatabase extends BaseDatabase {
 
         return result[0].likes as number
     }
+
+    public findPostById = async (postId: string) => {
+        const postsDB: IPostDB[] = await BaseDatabase
+            .connection(PostDatabase.TABLE_POSTS)
+            .select()
+            .where({ id: postId })
+        return postsDB[0]
+    }
+
+    public deletePost = async (postId: string) => {
+        await BaseDatabase
+            .connection(PostDatabase.TABLE_POSTS)
+            .delete()
+            .where({ id: postId })
+    }
 }

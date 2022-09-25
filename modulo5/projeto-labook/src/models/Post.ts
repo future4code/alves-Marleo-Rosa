@@ -70,3 +70,12 @@ export interface IGetPostsInputDTO {
 export interface IGetPostsOutputDTO {
     posts: Post[]
 }
+
+export interface IDeletePostInputDTO {
+    token: string,
+    postId: string
+}
+
+export interface IDeletePostOutputDTO {
+    message: string
+}

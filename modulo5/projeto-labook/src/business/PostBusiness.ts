@@ -1,6 +1,9 @@
 import { PostDatabase } from "../database/PostDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
-import { ICreatePostInputDTO, ICreatePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, Post } from "../models/Post"
+import { AuthorizationError } from "../errors/AuthorizationError"
+import { NotFoundError } from "../errors/NotFoundError"
+import { ICreatePostInputDTO, ICreatePostOutputDTO, IDeletePostInputDTO, IDeletePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, Post } from "../models/Post"
+import { USER_ROLES } from "../models/User"
 import { Authenticator } from "../services/Authenticator"
 import { HashManager } from "../services/HashManager"
 import { IdGenerator } from "../services/IdGenerator"
@@ -76,6 +79,36 @@ export class PostBusiness {
         const response: IGetPostsOutputDTO = {
             posts
         }
+        return response
+    }
+
+    public deletePost = async (input: IDeletePostInputDTO) => {
+        const { token, postId } = input
+
+        const payload = this.authenticator.getTokenPayload(token)
+
+        if (!payload) {
+            throw new AuthenticationError()
+        }
+
+        const postDB = await this.postDatabase.findPostById(postId)
+
+        if (!postDB) {
+            throw new NotFoundError()
+        }
+
+        if (payload.role === USER_ROLES.NORMAL) {
+            if (postDB.user_id !== payload.id) {
+                throw new AuthorizationError()
+            }
+        }
+
+        await this.postDatabase.deletePost(postId)
+
+        const response: IDeletePostOutputDTO = {
+            message: "Post deletado com sucesso"
+        }
+
         return response
     }
 }
