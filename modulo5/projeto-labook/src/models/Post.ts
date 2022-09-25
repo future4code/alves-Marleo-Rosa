@@ -88,3 +88,12 @@ export interface IAddLikeInputDTO {
 export interface IAddLikeOutputDTO {
     message: string
 }
+
+export interface IRemoveLikeInputDTO {
+    token: string,
+    postId: string
+}
+
+export interface IRemoveLikeOutputDTO {
+    message: string
+}

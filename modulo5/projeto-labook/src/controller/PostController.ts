@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { PostBusiness } from "../business/PostBusiness";
-import { IAddLikeInputDTO, ICreatePostInputDTO, IDeletePostInputDTO, IGetPostsInputDTO } from "../models/Post";
+import { IAddLikeInputDTO, ICreatePostInputDTO, IDeletePostInputDTO, IGetPostsInputDTO, IRemoveLikeInputDTO } from "../models/Post";
 
 export class PostController {
     constructor(
@@ -56,6 +56,20 @@ export class PostController {
             }
 
             const response = await this.postBusiness.addLike(input)
+            res.status(200).send(response)
+        } catch (error) {
+            res.status(400).send({ message: error.message })
+        }
+    }
+
+    public removeLike = async (req: Request, res: Response) => {
+        try {
+            const input: IRemoveLikeInputDTO = {
+                token: req.headers.authorization,
+                postId: req.params.id
+            }
+
+            const response = await this.postBusiness.removeLike(input)
             res.status(200).send(response)
         } catch (error) {
             res.status(400).send({ message: error.message })

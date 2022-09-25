@@ -71,4 +71,12 @@ export class PostDatabase extends BaseDatabase {
             .connection(PostDatabase.TABLE_LIKES)
             .insert(likeDB)
     }
+
+    public removeLike = async (postId: string, userId: string) => {
+        await BaseDatabase
+            .connection(PostDatabase.TABLE_LIKES)
+            .delete()
+            .where({ post_id: postId })
+            .andWhere({ user_id: userId })
+    }
 }

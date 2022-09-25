@@ -2,7 +2,7 @@ import { PostDatabase } from "../database/PostDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
 import { AuthorizationError } from "../errors/AuthorizationError"
 import { NotFoundError } from "../errors/NotFoundError"
-import { IAddLikeInputDTO, IAddLikeOutputDTO, ICreatePostInputDTO, ICreatePostOutputDTO, IDeletePostInputDTO, IDeletePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, ILikeDB, Post } from "../models/Post"
+import { IAddLikeInputDTO, IAddLikeOutputDTO, ICreatePostInputDTO, ICreatePostOutputDTO, IDeletePostInputDTO, IDeletePostOutputDTO, IGetPostsInputDTO, IGetPostsOutputDTO, ILikeDB, IRemoveLikeInputDTO, IRemoveLikeOutputDTO, Post } from "../models/Post"
 import { USER_ROLES } from "../models/User"
 import { Authenticator } from "../services/Authenticator"
 import { HashManager } from "../services/HashManager"
@@ -148,5 +148,35 @@ export class PostBusiness {
             message: "Like realizado com sucesso"
         }
         return response
+    }
+
+    public removeLike = async (input: IRemoveLikeInputDTO) => {
+        const { token, postId } = input
+
+        const payload = this.authenticator.getTokenPayload(token)
+
+        if (!payload) {
+            throw new AuthenticationError()
+        }
+
+        const postDB = await this.postDatabase.findPostById(postId)
+
+        if (!postDB) {
+            throw new NotFoundError()
+        }
+        const isAlreadyLiked = await this.postDatabase.findLike(
+            postId,
+            payload.id
+        )
+
+        if (!isAlreadyLiked) {
+            throw new Error("Ainda não deu like");
+        }
+
+        await this.postDatabase.removeLike(postId, payload.id)
+
+        const response: IRemoveLikeOutputDTO = {
+            message: "Like removido com sucesso"
+        }
     }
 }
