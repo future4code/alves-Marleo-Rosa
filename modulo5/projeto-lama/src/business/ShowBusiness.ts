@@ -2,24 +2,25 @@ import { ShowDatabase } from "../database/migrations/ShowDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
 import { AuthorizationError } from "../errors/AuthorizationError"
 import { NotFoundError } from "../errors/NotFoundError"
-import { IAddTicketsInputDTO, IAddTicketsOutputDTO, ICreateShowInputDTO, ICreateShowOutputDTO, IDeleteShowInputDTO, IDeleteShowOutputDTO, IGetShowInputDTO, IGetShowOutputDTO, IRemoveTicketsInputDTO, IRemoveTicketsOutputDTO, ITicketsDB, Show } from "../models/Show"
+import { IAddTicketsInputDTO, IAddTicketsOutputDTO, ICreateShowInputDTO, ICreateShowOutputDTO, IDeleteShowInputDTO, IDeleteShowOutputDTO, IGetShowOutputDTO, IRemoveTicketsInputDTO, IRemoveTicketsOutputDTO, IShowDB, ITicketsDB, Show } from "../models/Show"
 import { USER_ROLES } from "../models/User"
 import { Authenticator } from "../services/Authenticator"
-import { HashManager } from "../services/HashManager"
 import { IdGenerator } from "../services/IdGenerator"
 
 export class ShowBusiness {
     constructor(
         private showDatabase: ShowDatabase,
         private idGenerator: IdGenerator,
-        private hashManager: HashManager,
         private authenticator: Authenticator
     ) { }
     // criar autenticação do show
 
-    public createShow = async (input: ICreateShowInputDTO) => {
+    public createShow = async (input: ICreateShowInputDTO): Promise<ICreateShowOutputDTO> => {
         const { token, content } = input
 
+        if (token) {
+            throw new AuthenticationError()
+        }
         const payload = this.authenticator.getTokenPayload(token)
 
         if (!payload) {
@@ -51,16 +52,8 @@ export class ShowBusiness {
         return response
     }
 
-    public getShows = async (input: IGetShowInputDTO) => {
-        const { token } = input
-
-        const payload = this.authenticator.getTokenPayload(token)
-
-        if (!payload) {
-            throw new AuthenticationError()
-        }
-
-        const showsDB = await this.showDatabase.getShows()
+    public getShows = async (): Promise<IGetShowOutputDTO> => {
+        const showsDB: IShowDB[] = await this.showDatabase.getShows()
 
         const shows = showsDB.map(showDB => {
             return new Show(
@@ -71,16 +64,12 @@ export class ShowBusiness {
         })
 
         for (let show of shows) {
-            const showId = show.getId()
-            const tickets = await this.showDatabase.getTickets(showId)
-            show.setTickets(tickets)
+            const tickets = await this.showDatabase
         }
-
-        const response: IGetShowOutputDTO = {
-            shows
-        }
-        return response
     }
+
+
+
 
     public deleteShow = async (input: IDeleteShowInputDTO) => {
         const { token, showId } = input

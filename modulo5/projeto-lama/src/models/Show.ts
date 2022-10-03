@@ -63,10 +63,6 @@ export interface ICreateShowOutputDTO {
     show: Show
 }
 
-export interface IGetShowInputDTO {
-    token: string
-}
-
 export interface IGetShowOutputDTO {
     shows: Show[]
 }

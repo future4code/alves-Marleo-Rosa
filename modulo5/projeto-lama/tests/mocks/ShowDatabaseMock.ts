@@ -1,7 +1,7 @@
 import { BaseDatabase } from "../../src/database/BaseDatabase"
 import { IShowDB, Show } from "../../src/models/Show"
 
-export class ShowDataBaseMock extends BaseDatabase {
+export class ShowDatabaseMock extends BaseDatabase {
     public static SHOWS_TABLE = "Lama_Shows"
     public static TICKETS_TABLE = "Lama_Tickets"
 

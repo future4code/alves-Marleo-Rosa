@@ -1,5 +1,6 @@
 import { USER_ROLES } from "../../src/models/User"
 import { ITokenPayload } from "../../src/services/Authenticator"
+
 export class AuthenticatorMock {
     public generateToken = (payload: ITokenPayload): string => {
         switch (payload.role) {
@@ -9,20 +10,19 @@ export class AuthenticatorMock {
                 return "token-mock-normal"
         }
     }
-    public getTokenPayload = (token: string): ITokenPayload | null => {
+
+    getTokenPayload = (token: string): ITokenPayload | null => {
         switch (token) {
-            case "token-mock-admin":
-                const adminPayload: ITokenPayload = {
-                    id: "id-mock",
-                    role: USER_ROLES.ADMIN
-                }
-                return adminPayload
-            case "token-mock-normal":
-                const normalPayload: ITokenPayload = {
+            case "token-mock":
+                return {
                     id: "id-mock",
                     role: USER_ROLES.NORMAL
                 }
-                return normalPayload
+            case "token-astrodev":
+                return {
+                    id: "101",
+                    role: USER_ROLES.ADMIN
+                }
             default:
                 return null
         }
