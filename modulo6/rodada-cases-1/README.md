@@ -1,5 +1,5 @@
 # `Projeto`
-Projeto Pokédex
+Case Frontend Filmes Populares de Promobit
 
 # `Link`
 https://pokedex-alves1.surge.sh

@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import HomePage from "../pages/HomePage/HomePage";
-import ErrorPage from "../pages/ErrorPage";
-import DetailsPage from "../pages/DetailsPage";
+import DetailsPage from "../pages/details/DetailsPage"
+import HomePage from "../pages/home/HomePage"
+import SearchPage from "../pages/search/SearchPage"
+import ErrorPage from "../pages/error/ErrorPage"
 
 export const Router = () => {
   return (
@@ -9,8 +10,8 @@ export const Router = () => {
       <Routes>
         <Route index element={<HomePage/>}/>
         <Route path="details" element={<DetailsPage/>}/>
-      
-        <Route path="*" element={<ErrorPage/>}/>
+        <Route path="search" element={<SearchPage/>}/>
+        {/* <Route path="*" element={<ErrorPage/>}/> */}
       </Routes>
     </BrowserRouter>
   )

@@ -1,5 +1,9 @@
-export const goToDetailsPage= (navigate) => {
-  navigate("/details");
+export const goToDetailsPage = (navigate, id) => {
+  navigate(`/details/${id}`);
+}
+
+export const goToSearchPage = (navigate) => {
+  navigate("/search");
 }
 
 export const goToHomePage = (navigate) => {
