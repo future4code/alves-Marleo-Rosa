@@ -8,6 +8,7 @@ export const CardMovies = styled.div`
     display: flex;
     flex-direction: column;
     align-items:center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     /* justify-content:center; */
 `
 export const PosterPath = styled.img`
@@ -35,7 +36,9 @@ export const Body = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
-    background-color: black;
+    /* background-color: black; */
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
     `
 export const Title = styled.p`
     color: #FFFFFF;
