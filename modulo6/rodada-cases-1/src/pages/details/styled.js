@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-    
+    max-width: 100vw;
+    background: #F3F3F3;
+    width: 100vw;
 `
 
 export const Header = styled.div`
@@ -40,6 +42,7 @@ export const Horizon = styled.div`
     align-items: center !important;
     img{
         width: 186px;
+        /* height: 300px; */
         margin: 50px auto !important;
         align-self: center;
         left: 0;
@@ -123,4 +126,137 @@ export const PosterPath = styled.img`
     transform: scale(1.1);
     transition: transform .2s;
 	} */
+`
+
+export const StyledTrailer = styled.div`
+    /* margin-bottom: 2rem; */
+    /* margin-left: 2rem; */
+    @media(max-width: 650px) {
+            display: flex;
+            align-items: center;
+            margin-left: 10%;
+        iframe{
+            width: 90%;
+            height: 215px;
+        }
+    }
+`
+
+export const About = styled.div`
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-device-width : 481px){
+        /* padding: 10px; */
+    }
+    @media screen and (max-device-width : 480px){
+        padding: 16px;
+    }
+`
+
+export const Trailer = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    /* border: solid orange; */
+    justify-content: space-around;
+    @media screen and (min-device-width : 481px){
+        /* flex-direction: column; */
+    }
+    @media screen and (max-device-width : 480px){
+        flex-direction: column;
+    }
+`
+
+export const TrailerTitle = styled.div`
+    width: 185px;
+    height: 32px;
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.005em;
+    color: #131313;
+`
+export const CreditsDiv = styled.section`
+    display: flex;
+    flex-direction: column;
+@media screen and (min-device-width : 481px){
+    /* padding: 112px; */
+}
+@media screen and (max-device-width : 480px){
+    /* padding: 16px; */
+}
+`
+
+export const CreditsDivs = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    height: 420px;
+    overflow-x: scroll;
+    max-width: 100%;
+`
+
+export const Credits = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+    width: 191px;
+    height: 380px;
+    left: 1040px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    margin: 0 18px;
+    img{
+    width: 175px;
+    left: 8px;
+    top: 8px;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 16px 0px;
+    }
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h3{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+    }
+    p{
+    height: 24px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #646464;
+    }
+}
+`
+
+export const CreditTitle = styled.div`
+    width: 185px;
+    height: 32px;
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.005em;
+    color: #131313;
 `

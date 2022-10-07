@@ -9,11 +9,14 @@ import { convertTime } from "../../hooks/converTime"
 import { goToHomePage } from "../../routes/coordinator"
 import * as s from "./styled"
 import dmdb from "../../assets/img/tmdb-logo.png"
+import { idMaker } from "../../hooks/idMaker"
 
 export default function DetailsPage() {
     const navigate = useNavigate()
     const params = useParams()
+    const [movieVideos, setMovieVideos] = useState()
     const [movie, setMovie] = useState({})
+    const [cast, setCast] = useState([])
     const [duration, setDuration] = useState()
     const [dateBr, setDateBr] = useState()
     const [year, setYear] = useState()
@@ -43,16 +46,79 @@ export default function DetailsPage() {
     }
 
     const genreList = Array.isArray(movie.genres) && movie.genres.map((genre) => {
-        console.log(genre.name)
+        // console.log(genre.name)
         return (
             <s.InfoText>{genre.name}</s.InfoText>
-            )
+        )
+    })
+
+    const getMovieVideos = (set_data, id) => {
+        // const url = 
+        axios.get(`${BASE_URL}/3/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR`)
+            .then((resp) => {
+                console.log(resp)
+                const trailer = resp.data.results.filter((video) => {
+                    if (video.type === "Trailer") {
+                        return video
+                    }
+                })
+                set_data(trailer)
+            })
+            .catch((error) => {
+                console.log(error.message)
+            })
+    }
+
+    // const renderedTrailer = movieVideos[0] 
+    //     return (
+    //         <s.StyledTrailer key={idMaker()}>
+    //             <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} title={`${trailer.name}`}></iframe>
+    //         </s.StyledTrailer>
+    //     )
+
+    const renderedTrailer = movieVideos && movieVideos.map((trailer) => {
+        return (
+            <s.StyledTrailer key={idMaker()}>
+                <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} title={`${trailer.name}`}></iframe>
+            </s.StyledTrailer>
+        )
+    })
+
+    const getCredits = () => {
+        axios.get(`${BASE_URL}3/movie/${id}/credits?api_key=${API_KEY}&language=pt-BR`)
+            // axios.get(`${BASE_URL}movie/${id}/credits?${API_KEY}&language=pt-BR`)
+            .then((res) => {
+                console.log("console dos creditos", res)
+                setCast(res.data.cast)
+            })
+            .catch((error) => {
+                console.log(error.response)
+            })
+    }
+
+    const renderedCredits = cast.map((actor) => {
+        return (
+            <s.Credits>
+                {cast.actor}
+                <img src={`${BASE_IMG}${actor.profile_path}`}
+                />
+                <div key={actor.id}>
+                    <p>{`${actor.name}`}</p>
+                    <p>{`${actor.character}`}</p>
+                </div>
+            </s.Credits>
+        )
     })
 
     useEffect(() => {
         getDetails()
-        // getCredits()
+        getMovieVideos(setMovieVideos, id)
+        getCredits()
     }, [params.id])
+
+    // const goToMovieDetails = (id) => {
+    //     getMovieVideos(set_movieVideos, id)
+    // }
 
     return (
         <s.Body>
@@ -72,6 +138,7 @@ export default function DetailsPage() {
                         <s.Info>
                             <s.InfoText>{`${movie.vote_average}`}</s.InfoText>
                         </s.Info>
+
                     </s.TitleInfo>
                 </s.InfoFilm>
                 <s.ImagesPoster>
@@ -82,6 +149,22 @@ export default function DetailsPage() {
                     ></s.PosterPath>
                 </s.ImagesPoster>
             </s.Horizon>
+            <s.About>
+                <s.Trailer>
+                    {/* <s.TrailerTitle style={{ marginLeft: '2rem', marginBottom: '1rem' }}> Trailer </s.TrailerTitle> */}
+                    {renderedTrailer}
+                </s.Trailer>
+                <s.CreditsDiv>
+                    {renderedCredits.length > 0 &&
+                        <div>
+                            <s.CreditTitle>Elenco</s.CreditTitle>
+                            <s.CreditsDivs>
+                                {renderedCredits}
+                            </s.CreditsDivs>
+                        </div>
+                    }
+                </s.CreditsDiv>
+            </s.About>
         </s.Body>
     )
 }
