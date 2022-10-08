@@ -2,7 +2,15 @@ import styled from "styled-components";
 
 export const Body = styled.div`
     max-width: 100vw;
-    background: #F3F3F3;
+    /* background: #F3F3F3; */
+    background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+
     width: 100vw;
 `
 
@@ -42,9 +50,10 @@ export const Horizon = styled.div`
     align-items: center !important;
     img{
         width: 186px;
-        /* height: 300px; */
-        margin: 50px auto !important;
-        align-self: center;
+        height: 300px;
+        /* margin: 50px auto !important; */
+        padding: 0;
+        /* align-self: center; */
         left: 0;
     }
 }
@@ -258,5 +267,6 @@ export const CreditTitle = styled.div`
     display: flex;
     align-items: center;
     letter-spacing: -0.005em;
-    color: #131313;
+    color: #ffffff;
+    padding-left: 20px;
 `

@@ -7,7 +7,6 @@ function App() {
   return (
     <GlobalState>
       <GlobalStyle />
-      {/* <Header/> */}
       <Router />
     </GlobalState>
   );
