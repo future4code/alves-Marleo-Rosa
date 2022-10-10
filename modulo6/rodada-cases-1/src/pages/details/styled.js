@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Body = styled.div`
     max-width: 100vw;
-    /* background: #F3F3F3; */
     background:
     radial-gradient(black 15%, transparent 16%) 0 0,
     radial-gradient(black 15%, transparent 16%) 8px 8px,
@@ -10,15 +9,15 @@ export const Body = styled.div`
     radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
     background-color:#282828;
     background-size:16px 16px;
-
     width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 `
 
 export const Header = styled.div`
-    /* border: solid orange; */
     background-color: #21D4FD;
     background-image: linear-gradient(19deg, #ffffff 0%, #217dff 100%);
-
+    width: 100vw;
 `
 export const Logo = styled.img`
     width: 150px;
@@ -118,7 +117,6 @@ export const InfoText = styled.p`
 `
 
 export const ImagesPoster = styled.div`
-    /* border: 2px solid black; */
     box-sizing: border-box;
     height: 400px; 
     display: flex;
@@ -126,7 +124,6 @@ export const ImagesPoster = styled.div`
 `
 
 export const PosterPath = styled.img`
-    /* border: 2px solid violet; */
     width: 400px;
     height: 500px;
     box-sizing: border-box;
@@ -166,7 +163,7 @@ export const Trailer = styled.div`
     display: flex;
     flex-direction: row;
     padding: 10px;
-    /* border: solid orange; */
+    width: 100vw;
     justify-content: space-around;
     @media screen and (min-device-width : 481px){
         /* flex-direction: column; */
@@ -207,8 +204,9 @@ export const CreditsDivs = styled.div`
     margin-top: 50px;
     height: 420px;
     overflow-x: scroll;
-    max-width: 100%;
-`
+    width: 100vw;
+    max-width: 100vw;
+    `
 
 export const Credits = styled.div`
     display: flex;
@@ -217,9 +215,28 @@ export const Credits = styled.div`
     padding: 8px;
     width: 191px;
     height: 380px;
-    left: 1040px;
+    /* left: 1040px; */
     top: 0px;
-    background: #FFFFFF;
+    /* background: #FFFFFF; */
+    /* background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #ffffff 0%, #217dff 100%); */
+
+    background:
+    linear-gradient(324deg, #e3d7bf 4%,   transparent 4%) -70px 43px,
+    linear-gradient( 36deg, #e3d7bf 4%,   transparent 4%) 30px 43px,
+    linear-gradient( 72deg, #232927  8.5%, transparent 8.5%) 30px 43px,
+    linear-gradient(288deg, #232927  8.5%, transparent 8.5%) -70px 43px,
+    linear-gradient(216deg, #232927  7.5%, transparent 7.5%) -70px 23px,
+    linear-gradient(144deg, #232927  7.5%, transparent 7.5%) 30px 23px,
+
+    linear-gradient(324deg, #e3d7bf 4%,   transparent 4%) -20px 93px,
+    linear-gradient( 36deg, #e3d7bf 4%,   transparent 4%) 80px 93px,
+    linear-gradient( 72deg, #232927 8.5%, transparent 8.5%) 80px 93px,
+    linear-gradient(288deg, #232927 8.5%, transparent 8.5%) -20px 93px,
+    linear-gradient(216deg, #232927 7.5%, transparent 7.5%) -20px 73px,
+    linear-gradient(144deg, #232927 7.5%, transparent 7.5%) 80px 73px;
+    background-color: #e3d7bf;
+    background-size: 100px 100px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
     margin: 0 18px;
@@ -250,9 +267,12 @@ div{
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    color: #646464;
+    color: #01657c;
     }
 }
+:hover{
+        box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+    }
 `
 
 export const CreditTitle = styled.div`
@@ -269,4 +289,26 @@ export const CreditTitle = styled.div`
     letter-spacing: -0.005em;
     color: #ffffff;
     padding-left: 20px;
+`
+
+export const Footer = styled.div`
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #ffffff 0%, #217dff 100%);
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+`
+export const LogoFooter = styled.img`
+    width: 150px;
+`
+
+export const TextFooter = styled.div`
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    :hover{
+        cursor: pointer;
+    }
 `

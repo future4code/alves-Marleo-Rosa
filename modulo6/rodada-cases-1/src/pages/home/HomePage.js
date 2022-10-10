@@ -17,10 +17,78 @@ export default function HomePage() {
     const [movie, setMovie] = useState([])
     const [pageAtualization, setPageAtualization] = useState(0)
 
+    const goToNextPage = () => {
+        setPage(page + 1)
+        // setPageAtualization(pageAtualization + 1)
+    }
+    const goToBackPage = () => {
+        setPage(page - 1)
+        // setPageAtualization(pageAtualization - 1)
+    }
+    const goToFirstPage = () => {
+        setPage(1)
+        // setPageAtualization(pageAtualization)
+    }
+    const goToNextTwoPage = () => {
+        setPage(page + 2)
+        // setPageAtualization(pageAtualization + 2)
+    }
+    const goToNextThreePage = () => {
+        setPage(page + 3)
+        // setPageAtualization(pageAtualization + 3)
+    }
+    const goToNextFourPage = () => {
+        setPage(page + 4)
+        // setPageAtualization(pageAtualization + 4)
+    }
+    const goToBackTwoPage = () => {
+        setPage(page - 2)
+        // setPageAtualization(pageAtualization - 2)
+    }
+    // const goToFinalPage = () => {
+    //     setPage(page + 20)
+    //     // setPageAtualization(pageAtualization + 20)
+    // }
+
+    const Pagination = () => {
+        if (page === 1) {
+            return (<s.Proxima>
+                <s.PaginationButtonStartEnd>{page}</s.PaginationButtonStartEnd>
+                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToNextFourPage()}>{page + 4}</s.PaginationButton>
+                <s.PaginationButtonStartEnd onClick={() => goToNextPage()}>&#62;</s.PaginationButtonStartEnd>
+            </s.Proxima>)
+        } else if (page === 2) {
+            return (<s.Proxima>
+                <s.PaginationButtonStartEnd onClick={() => goToBackPage()}>&#60;</s.PaginationButtonStartEnd>
+                <s.PaginationButton onClick={() => goToBackPage()}>{page - 1}</s.PaginationButton>
+                <s.PaginationButtonStartEnd>{page}</s.PaginationButtonStartEnd>
+                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
+                <s.PaginationButtonStartEnd onClick={() => goToNextPage()}>&#62;</s.PaginationButtonStartEnd>
+            </s.Proxima>)
+        } else {
+            return (<s.Proxima>
+                <s.PaginationButtonStartEnd onClick={() => goToFirstPage()}>Primeira</s.PaginationButtonStartEnd>
+                <s.PaginationButtonStartEnd onClick={() => goToBackPage()}>&#60;</s.PaginationButtonStartEnd>
+                <s.PaginationButton onClick={() => goToBackTwoPage()}>{page - 2}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToBackPage()}>{page - 1}</s.PaginationButton>
+                <s.PaginationButtonStartEnd>{page}</s.PaginationButtonStartEnd>
+                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
+                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
+                <s.PaginationButtonStartEnd onClick={() => goToNextPage()}>&#62;</s.PaginationButtonStartEnd>
+            </s.Proxima>)
+        }
+    }
+
     const getMovies = () => {
         axios.get(`${BASE_URL}3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=${page}`)
             // axios.get(`${BASE_URL}3/movie/popular?api_key=${API_KEY}&language=pt-BR`)
             .then((res) => {
+                console.log(page)
                 setMovie(res.data.results)
             })
             .catch((error) => {
@@ -30,89 +98,15 @@ export default function HomePage() {
 
     useEffect(() => {
         getMovies()
-    }, [pageAtualization])
+    }, [page])
+    // }, [pageAtualization])
 
     // let dateBr = convertDate(movie.release_date)
-
-    const goToFirstPage = () => {
-        setPage(page===1)
-        setPageAtualization(pageAtualization)
-    }
-    const goToNextPage = () => {
-        setPage(page + 1)
-        setPageAtualization(pageAtualization + 1)
-    }
-    const goToNextTwoPage = () => {
-        setPage(page + 2)
-        setPageAtualization(pageAtualization + 2)
-    }
-    const goToNextThreePage = () => {
-        setPage(page + 3)
-        setPageAtualization(pageAtualization + 3)
-    }
-    const goToNextFourPage = () => {
-        setPage(page + 3)
-        setPageAtualization(pageAtualization + 4)
-    }
-    const goToFinalPage = () => {
-        setPage(page + 20)
-        setPageAtualization(pageAtualization + 20)
-    }
-
-    const Pagination = () => {
-        if (page === 1) {
-            return <s.Proxima>
-                <s.PaginationButtonStartEnd onClick={() => goToFirstPage()}>Primeira</s.PaginationButtonStartEnd>
-                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextFourPage()}>{page + 4}</s.PaginationButton>
-                <s.PaginationButtonStartEnd onClick={() => goToFinalPage()}>Última</s.PaginationButtonStartEnd>
-            </s.Proxima>
-        } else if (page === 2) {
-            return <s.Proxima>
-                <s.PaginationButtonStartEnd onClick={() => goToFirstPage()}>Primeira</s.PaginationButtonStartEnd>
-                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextFourPage()}>{page + 4}</s.PaginationButton>
-                <s.PaginationButtonStartEnd onClick={() => goToFinalPage()}>Última</s.PaginationButtonStartEnd>
-            </s.Proxima>
-        } else if (page === 3) {
-            return <s.Proxima>
-                <s.PaginationButtonStartEnd onClick={() => goToFirstPage()}>Primeira</s.PaginationButtonStartEnd>
-                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextFourPage()}>{page + 4}</s.PaginationButton>
-                <s.PaginationButtonStartEnd onClick={() => goToFinalPage()}>Última</s.PaginationButtonStartEnd>
-            </s.Proxima>
-        } else if (page === 4) {
-            return <s.Proxima>
-                <s.PaginationButtonStartEnd onClick={() => goToFirstPage()}>Primeira</s.PaginationButtonStartEnd>
-                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextFourPage()}>{page + 4}</s.PaginationButton>
-                <s.PaginationButtonStartEnd onClick={() => goToFinalPage()}>Última</s.PaginationButtonStartEnd>
-            </s.Proxima>
-        } else if (page === 5) {
-            return <s.Proxima>
-                <s.PaginationButtonStartEnd onClick={() => goToFirstPage()}>Primeira</s.PaginationButtonStartEnd>
-                <s.PaginationButton onClick={() => goToNextPage()}>{page + 1}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextTwoPage()}>{page + 2}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextThreePage()}>{page + 3}</s.PaginationButton>
-                <s.PaginationButton onClick={() => goToNextFourPage()}>{page + 4}</s.PaginationButton>
-                <s.PaginationButtonStartEnd onClick={() => goToFinalPage()}>Última</s.PaginationButtonStartEnd>
-            </s.Proxima>
-        }
-    }
 
     return (
         <s.Body>
             <s.Header>
                 <s.Logo src={dmdb}></s.Logo>
-
             </s.Header>
             <s.Main>
                 {
@@ -143,7 +137,7 @@ export default function HomePage() {
                 {/* <s.TextFooter><a href="https://github.com/marleopr" target="_blank" rel="noopener noreferrer">© 2022 by Márleo Piber</a></s.TextFooter> */}
                 <s.TextFooter>
                     <a href="https://github.com/marleopr" target="_blank" rel="noopener noreferrer">© 2022 by Márleo Piber</a>
-                    </s.TextFooter>
+                </s.TextFooter>
             </s.Footer>
         </s.Body>
     )

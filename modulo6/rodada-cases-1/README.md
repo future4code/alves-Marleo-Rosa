@@ -1,27 +1,17 @@
-# `Projeto`
+# `Projeto Case site de filmes populares Promobit`
 Case Frontend Filmes Populares de Promobit
 
 # `Link`
-https://pokedex-alves1.surge.sh
+https://filmes-marleo.surge.sh
 
 
 # `Descrição`
-O Projeto Pokédex foi desenvolvido como uma atividade dentro do curso Full-Stack Web Developer da Labenu, o qual consiste em requisições (via axios) para a PokéApi, que é uma API pública* com informações relacionadas aos Pokémons.
-Trata-se de uma ferramenta onde o usuário pode verificar os detalhes de todos os Pokémons, adicionar os mesmos a sua Pokédex e também criar batalhas entre Pokémons para ver qual é o vencedor.
-*a API pode ser encontrada [aqui](https://pokeapi.co/)
-</br>
-O repositório do projeto pode ser encontrado [aqui](https://github.com/future4code/Alves-pokedex1)
+O Projeto filmes populares Promobit foi desenvolvido como uma atividade dentro do curso Full-Stack Web Developer da Labenu, o qual consiste em requisições (via axios) para a themoviedb, que é uma API pública* com informações relacionadas a filmes e séries.
 
-# `Modo de usar`
-Ao iniciar a ferramenta o usuário pode ver uma lista com vinte cards de Pokémons, e, na parte inferior da lista existe uma paginação, onde o usuário pode clicar em outras páginas para carregar mais Pokémons. Nestes cards, o usuário pode clicar em "Detalhes" ou em "Capturar!".
+*a API pode ser encontrada [aqui](https://www.themoviedb.org/)
 </br>
-Caso o usuário, no card, clicar em "Detalhes", ele será redirecionado para outra página, onde encontrará alguns detalhes do Pokémon selecionado: uma foto de frente e outra de costas, os valores de Base Stats que são: HP, Attack, Defense, Sp. Atk, Sp. Def e Speed, também o ID, Nome, os Tipos do Pokémon e seus Moves.
-</br>
-Caso o usuário, no card, clicar em "Capturar!", este Pokémon automaticamente será adicionado na Pokédex, que é uma lista com os Pokémons adicionados pelo usuário.
-</br>
-No canto superior direito da tela, existe uma botão chamado "Pokédex". Ao clicar neste o usuário é redirecionado para a página onde estão os cards de todos aqueles adicionados à Pokédex.
-</br>
-No canto superior direito da página Pokédex existe um botão chamado "Criar Batalha". Ao clicar neste botão o usuário é redirecionado para uma página onde ele pode selecionar dois Pokémons. As opções que aparecem nesta seleção são apenas os Pokémons que já estão adicionados à Pokédex. Ao selecionar os Pokémons, suas imagens são exibidas abaixo do nome e também um botão chamado "Lutar!", que, ao ser clicado exibe na tela os valores de "Base stats" de cada Pokémon, assim como a soma total destes. O Pokémon vencedor é aquele que possuir o maior valor total e uma mensagem na tela informa quem o é.
+O repositório do projeto pode ser encontrado [aqui](https://github.com/future4code/alves-Marleo-Rosa/pull/69)
+
 
 # `Instalando e rodando o projeto`
 Fazer o clone do projeto:
@@ -46,19 +36,13 @@ Rodar o projeto:
 <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
 </div>
 
-# `Autores`
-Olavo Marques do Nascimento; Márleo Piber da Rosa; Evandro Paulo Folletto.
+# `Autor`
+Márleo Piber da Rosa.
 
 # `Imagens`
 ### Página Home
-<img src="./alves-pokedex1/src/assets/img_readme/site1.png"/>
-### Página Home
-<img src="./alves-pokedex1/src/assets/img_readme/site2.png"/>
-### Página Detalhe
-<img src="./alves-pokedex1/src/assets/img_readme/site3.png"/>
-### Página Pokédex
-<img src="./alves-pokedex1/src/assets/img_readme/site4.png"/>
-### Página Batalha
-<img src="./alves-pokedex1/src/assets/img_readme/site5.png"/>
-### Página Batalha
-<img src="./alves-pokedex1/src/assets/img_readme/site6.png"/>
+<img src="src\assets\img\HomePage1.png"/>
+<img src="src\assets\img\HomePage2.png"/>
+### Página Detalhes
+<img src="src\assets\img\DetalhesPage1.png"/>
+<img src="src\assets\img\DetalhesPage2.png"/>

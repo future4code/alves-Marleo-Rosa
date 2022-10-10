@@ -1,10 +1,9 @@
 import styled from "styled-components"
 
 export const Body = styled.div`
-    border: 2px solid green;
-    width: 100vw;
     box-sizing: border-box;
-    /* width: 100%; */
+    width: 100vw;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
@@ -26,6 +25,15 @@ export const Header = styled.div`
     /* border: solid orange; */
     background-color: #21D4FD;
     background-image: linear-gradient(19deg, #ffffff 0%, #217dff 100%);
+    /* background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px; */
     /* display: flex; */
     /* flex-direction: row; */
     width: 100%;
@@ -33,7 +41,7 @@ export const Header = styled.div`
 
 export const Logo = styled.img`
     width: 150px;
-    cursor: pointer;
+    /* cursor: pointer; */
 `
 
 export const CardMovies = styled.div`
@@ -105,6 +113,10 @@ export const ImagesPoster = styled.div`
 export const Title = styled.p`
     color: #FFFFFF;
     font-family:'Arial Narrow Bold', sans-serif;
+    :hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+    }
 `
 
 
@@ -188,7 +200,8 @@ export const PaginationButtonStartEnd = styled.div`
     display: flex;
     justify-content: space-around;
     color: #000000;
-    background-color: #ffffff;
+    background-color: #21D4FD;
+    background-image: linear-gradien;
     font-weight:bold;
     align-items: center;
     :hover{

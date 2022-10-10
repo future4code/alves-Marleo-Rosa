@@ -10,6 +10,7 @@ import { goToHomePage } from "../../routes/coordinator"
 import * as s from "./styled"
 import dmdb from "../../assets/img/tmdb-logo.png"
 import { idMaker } from "../../hooks/idMaker"
+import dmdbFooter from "../../assets/img/tmdb-logo-footer.png"
 
 export default function DetailsPage() {
     const navigate = useNavigate()
@@ -165,6 +166,14 @@ export default function DetailsPage() {
                     }
                 </s.CreditsDiv>
             </s.About>
+            <s.Footer>
+                <s.LogoFooter src={dmdbFooter}></s.LogoFooter>
+                {/* <s.TextFooter>• © 2022 by Márleo Piber •</s.TextFooter> */}
+                {/* <s.TextFooter><a href="https://github.com/marleopr" target="_blank" rel="noopener noreferrer">© 2022 by Márleo Piber</a></s.TextFooter> */}
+                <s.TextFooter>
+                    <a href="https://github.com/marleopr" target="_blank" rel="noopener noreferrer">© 2022 by Márleo Piber</a>
+                </s.TextFooter>
+            </s.Footer>
         </s.Body>
     )
 }
