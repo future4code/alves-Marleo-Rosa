@@ -18,6 +18,8 @@ export const Header = styled.div`
     background-color: #21D4FD;
     background-image: linear-gradient(19deg, #ffffff 0%, #217dff 100%);
     width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 `
 export const Logo = styled.img`
     width: 150px;
@@ -30,6 +32,9 @@ export const Horizon = styled.div`
     img{
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 8px;
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 @media screen and (min-device-width : 481px){
     height: 41.66vw;
@@ -114,13 +119,16 @@ export const InfoText = styled.p`
     display: flex;
     align-items: center;
     color: #FFFFFF;
+    gap: 10px;
 `
 
 export const ImagesPoster = styled.div`
-    box-sizing: border-box;
     height: 400px; 
     display: flex;
     justify-content: center;
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 `
 
 export const PosterPath = styled.img`
@@ -137,6 +145,8 @@ export const PosterPath = styled.img`
 export const StyledTrailer = styled.div`
     /* margin-bottom: 2rem; */
     /* margin-left: 2rem; */
+    overflow-x: hidden;
+    box-sizing: border-box;
     @media(max-width: 650px) {
             display: flex;
             align-items: center;
@@ -151,6 +161,9 @@ export const StyledTrailer = styled.div`
 export const About = styled.div`
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: 100vw;
     @media screen and (min-device-width : 481px){
         /* padding: 10px; */
     }
@@ -164,6 +177,8 @@ export const Trailer = styled.div`
     flex-direction: row;
     padding: 10px;
     width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
     justify-content: space-around;
     @media screen and (min-device-width : 481px){
         /* flex-direction: column; */
@@ -224,17 +239,17 @@ export const Credits = styled.div`
     background:
     linear-gradient(324deg, #e3d7bf 4%,   transparent 4%) -70px 43px,
     linear-gradient( 36deg, #e3d7bf 4%,   transparent 4%) 30px 43px,
-    linear-gradient( 72deg, #232927  8.5%, transparent 8.5%) 30px 43px,
-    linear-gradient(288deg, #232927  8.5%, transparent 8.5%) -70px 43px,
-    linear-gradient(216deg, #232927  7.5%, transparent 7.5%) -70px 23px,
-    linear-gradient(144deg, #232927  7.5%, transparent 7.5%) 30px 23px,
+    linear-gradient( 72deg, #5d6160  8.5%, transparent 8.5%) 30px 43px,
+    linear-gradient(288deg, #5d6160  8.5%, transparent 8.5%) -70px 43px,
+    linear-gradient(216deg, #5d6160  7.5%, transparent 7.5%) -70px 23px,
+    linear-gradient(144deg, #5d6160  7.5%, transparent 7.5%) 30px 23px,
 
     linear-gradient(324deg, #e3d7bf 4%,   transparent 4%) -20px 93px,
     linear-gradient( 36deg, #e3d7bf 4%,   transparent 4%) 80px 93px,
-    linear-gradient( 72deg, #232927 8.5%, transparent 8.5%) 80px 93px,
-    linear-gradient(288deg, #232927 8.5%, transparent 8.5%) -20px 93px,
-    linear-gradient(216deg, #232927 7.5%, transparent 7.5%) -20px 73px,
-    linear-gradient(144deg, #232927 7.5%, transparent 7.5%) 80px 73px;
+    linear-gradient( 72deg, #5d6160 8.5%, transparent 8.5%) 80px 93px,
+    linear-gradient(288deg, #5d6160 8.5%, transparent 8.5%) -20px 93px,
+    linear-gradient(216deg, #5d6160 7.5%, transparent 7.5%) -20px 73px,
+    linear-gradient(144deg, #5d6160 7.5%, transparent 7.5%) 80px 73px;
     background-color: #e3d7bf;
     background-size: 100px 100px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -267,7 +282,10 @@ div{
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    color: #01657c;
+    color: #000000;
+    text-shadow: -1px 0 #ffffff, 0 1px #ffffff,
+      1px 0 #ffffff, 0 -1px #ffffff;
+      letter-spacing: 1px;
     }
 }
 :hover{

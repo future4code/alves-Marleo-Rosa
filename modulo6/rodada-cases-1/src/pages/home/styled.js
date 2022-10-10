@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Body = styled.div`
     box-sizing: border-box;
+    overflow-x: hidden;
     width: 100vw;
     max-width: 100vw;
     display: flex;
@@ -36,7 +37,9 @@ export const Header = styled.div`
     background-size: 20px 20px; */
     /* display: flex; */
     /* flex-direction: row; */
-    width: 100%;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
 `
 
 export const Logo = styled.img`
@@ -124,6 +127,9 @@ export const Main = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100vw;
 `
 
 export const Footer = styled.div`
@@ -132,7 +138,9 @@ export const Footer = styled.div`
     background-image: linear-gradient(19deg, #ffffff 0%, #217dff 100%);
     /* display: flex; */
     /* flex-direction: row; */
-    width: 100%;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
     display: flex;
     flex-direction: row;
 `
