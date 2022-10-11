@@ -4,15 +4,16 @@
 -- -- Amb_Pizzas_Ingredients
 -- -- Amb_Order_Item
 
+-- DROP TABLE IF EXISTS Amb_Orders_Order_Items;
+DROP TABLE IF EXISTS Amb_Order_Items;
+DROP TABLE IF EXISTS Amb_Orders;
 DROP TABLE IF EXISTS Amb_Pizzas_Ingredients;
 DROP TABLE IF EXISTS Amb_Ingredients;
 DROP TABLE IF EXISTS Amb_Pizzas;
-DROP TABLE IF EXISTS Amb_Orders;
-DROP TABLE IF EXISTS Amb_Order_Items;
 
 CREATE TABLE IF NOT EXISTS Amb_Pizzas (
 	name VARCHAR(255) PRIMARY KEY,
-    price DECIMAL(4,2) NOT NULL
+    price DECIMAL(3,2) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Amb_Ingredients (
@@ -32,11 +33,13 @@ CREATE TABLE IF NOT EXISTS Amb_Orders (
 	id VARCHAR(255) PRIMARY KEY
 );
 
-CREATE TABLE IF NOT EXISTS Amb_Orders_Items (
+CREATE TABLE IF NOT EXISTS Amb_Order_Items (
 	id VARCHAR(255) PRIMARY KEY,
     pizza_name VARCHAR(255) NOT NULL,
     quantity TINYINT,
-	FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name)
+    order_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
+	FOREIGN KEY (order_id) REFERENCES Amb_Orders (id)
 );
 
 CREATE TABLE IF NOT EXISTS Amb_Orders_Order_Items (
@@ -57,11 +60,25 @@ INSERT INTO Amb_Pizzas VALUES (
 );
 
 INSERT INTO Amb_Ingredients VALUES (
+      "tomato"
+);
+
+INSERT INTO Amb_Ingredients VALUES (
       "mozzarella"
 );
 
 INSERT INTO Amb_Ingredients VALUES (
       "mozzarella di bufala"
+);
+
+INSERT INTO Amb_Pizzas_Ingredients VALUES (
+	"Margherita",
+    "tomato"
+);
+
+INSERT INTO Amb_Pizzas_Ingredients VALUES (
+	"Margherita",
+    "mozzarella"
 );
 
 INSERT INTO Amb_Pizzas_Ingredients VALUES (

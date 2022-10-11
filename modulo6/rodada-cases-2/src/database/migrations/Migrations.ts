@@ -1,7 +1,6 @@
 import { BaseDatabase } from "../BaseDatabase"
-import { ShowDatabase } from "../ShowDatabase"
-import { UserDatabase } from "../UserDatabase"
-import { shows, tickets, users } from "./data"
+import { OrderDatabase } from "../OrderDatabase"
+import { PizzaDatabase } from "../PizzaDatabase"
 
 class Migrations extends BaseDatabase {
     execute = async () => {
@@ -27,46 +26,47 @@ class Migrations extends BaseDatabase {
 
     createTables = async () => {
         await BaseDatabase.connection.raw(`
-        DROP TABLE IF EXISTS ${ShowDatabase.TABLE_TICKETS};
-        DROP TABLE IF EXISTS ${ShowDatabase.TABLE_SHOWS};
-        DROP TABLE IF EXISTS ${UserDatabase.TABLE_USERS};
+        DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDER_ITEMS};
+        DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDERS};
+        DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS_INGREDIENTS};
+        DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_INGREDIENTS};
+        DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS};
         
-        CREATE TABLE IF NOT EXISTS ${UserDatabase.TABLE_USERS}(
-            id VARCHAR(255) PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            email VARCHAR(255) NOT NULL UNIQUE,
-            password VARCHAR(255) NOT NULL,
-            role ENUM("NORMAL", "ADMIN") DEFAULT "NORMAL" NOT NULL
+        CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZAS} (
+            name VARCHAR(255) PRIMARY KEY,
+            price DECIMAL(4,2) NOT NULL
         );
-
-        CREATE TABLE IF NOT EXISTS ${ShowDatabase.TABLE_SHOWS}(
-            id VARCHAR(255) PRIMARY KEY,
-            band VARCHAR(255) NOT NULL,
-            starts_at DATE NOT NULL
+        
+        CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_INGREDIENTS} (
+            name VARCHAR(255) PRIMARY KEY
         );
-
-        CREATE TABLE IF NOT EXISTS ${ShowDatabase.TABLE_TICKETS}(
+        
+        CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZAS_INGREDIENTS} (
+            pizza_name VARCHAR(255) NOT NULL,
+            ingredient_name VARCHAR(255) NOT NULL,
+            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
+            FOREIGN KEY (ingredient_name) REFERENCES Amb_Ingredients (name)
+        );
+        
+        DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDERS};
+        
+        CREATE TABLE IF NOT EXISTS Amb_Orders (
+            id VARCHAR(255) PRIMARY KEY
+        );
+        
+        CREATE TABLE IF NOT EXISTS ${OrderDatabase.TABLE_ORDER_ITEMS} (
             id VARCHAR(255) PRIMARY KEY,
-            show_id VARCHAR(255) NOT NULL,
-            user_id VARCHAR(255) NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES ${UserDatabase.TABLE_USERS}(id),
-            FOREIGN KEY (show_id) REFERENCES ${ShowDatabase.TABLE_SHOWS}(id)
+            pizza_name VARCHAR(255) NOT NULL,
+            quantity TINYINT,
+            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name)
         );
         `)
     }
 
     insertData = async () => {
-        await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
-            .insert(users)
-
-        await BaseDatabase
-            .connection(ShowDatabase.TABLE_SHOWS)
-            .insert(shows)
-
-        await BaseDatabase
-            .connection(ShowDatabase.TABLE_TICKETS)
-            .insert(tickets)
+        // await BaseDatabase
+        //     .connection(UserDatabase.TABLE_USERS)
+        //     .insert(users)
     }
 }
 
