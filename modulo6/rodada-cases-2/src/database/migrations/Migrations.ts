@@ -1,7 +1,7 @@
 import { BaseDatabase } from "../BaseDatabase"
 import { OrderDatabase } from "../OrderDatabase"
 import { PizzaDatabase } from "../PizzaDatabase"
-import { ingredientsSeed, pizzaIngredientsSeed, pizzasSeed } from "./data"
+import { ingredientsSeed, pizzasIngredientsSeed, pizzasSeed } from "./data"
 
 class Migrations extends BaseDatabase {
     execute = async () => {
@@ -10,14 +10,16 @@ class Migrations extends BaseDatabase {
             await this.createTables()
             console.log("Tables created successfully.")
 
-            console.log("Populating tables...")
+            console.log("Populating tables with seed...")
             await this.insertData()
             console.log("Tables populated successfully.")
 
             console.log("Migrations completed.")
         } catch (error) {
             console.log("FAILED! Error in migrations...")
-            console.log(error.message)
+            if (error instanceof Error) {
+                console.log(error.message)
+            }
         } finally {
             console.log("Ending connection...")
             BaseDatabase.connection.destroy()
@@ -32,10 +34,10 @@ class Migrations extends BaseDatabase {
         DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS_INGREDIENTS};
         DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_INGREDIENTS};
         DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS};
-        
+
         CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZAS} (
             name VARCHAR(255) PRIMARY KEY,
-            price DECIMAL(4,2) NOT NULL
+            price DECIMAL(3,2) NOT NULL
         );
         
         CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_INGREDIENTS} (
@@ -49,9 +51,7 @@ class Migrations extends BaseDatabase {
             FOREIGN KEY (ingredient_name) REFERENCES Amb_Ingredients (name)
         );
         
-        DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDERS};
-        
-        CREATE TABLE IF NOT EXISTS Amb_Orders (
+        CREATE TABLE IF NOT EXISTS ${OrderDatabase.TABLE_ORDERS} (
             id VARCHAR(255) PRIMARY KEY
         );
         
@@ -59,7 +59,9 @@ class Migrations extends BaseDatabase {
             id VARCHAR(255) PRIMARY KEY,
             pizza_name VARCHAR(255) NOT NULL,
             quantity TINYINT,
-            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name)
+            order_id VARCHAR(255) NOT NULL,
+            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
+            FOREIGN KEY (order_id) REFERENCES Amb_Orders (id)
         );
         `)
     }
@@ -75,7 +77,7 @@ class Migrations extends BaseDatabase {
 
         await BaseDatabase
             .connection(PizzaDatabase.TABLE_PIZZAS_INGREDIENTS)
-            .insert(pizzaIngredientsSeed)
+            .insert(pizzasIngredientsSeed)
     }
 }
 

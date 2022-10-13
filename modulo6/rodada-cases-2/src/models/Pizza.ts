@@ -17,12 +17,12 @@ export class Pizza {
         private name: string,
         private price: number,
         private ingredients: string[]
-    ) { }
-
+    ) {}
+    
     public getName = () => {
         return this.name
     }
-
+    
     public getPrice = () => {
         return this.price
     }
@@ -43,11 +43,11 @@ export class Pizza {
         this.ingredients = newIngredients
     }
 
-    public addIngredients = (newIngredients: string) => {
-        this.ingredients.push(newIngredients)
+    public addIngredient = (newIngredient: string) => {
+        this.ingredients.push(newIngredient)
     }
 
-    public removeIngredients = (ingredientToRemove: string) => {
+    public removeIngredient = (ingredientToRemove: string) => {
         return this.ingredients.filter(ingredient => ingredient !== ingredientToRemove)
     }
 }

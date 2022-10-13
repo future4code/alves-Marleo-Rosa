@@ -1,5 +1,25 @@
 ### Endpoint de teste
 GET http://localhost:3003/api/ping
 
-###
+### Get pizzas
 GET http://localhost:3003/api/pizzas
+
+### Create Order
+POST http://localhost:3003/api/orders
+Content-Type: application/json
+
+{
+    "pizzas": [
+        {
+            "name": "Margherita",
+            "quantity": 2
+        },
+        {
+            "name": "Bufala",
+            "quantity": 1
+        }
+    ]
+}
+
+### Get Orders
+GET http://localhost:3003/api/orders

@@ -1,5 +1,7 @@
 import { IIngredientsDB, IPizzaDB, IPizzasIngredientsDB } from "../../models/Pizza";
 
+// seeds
+
 export const pizzasSeed: IPizzaDB[] = [
     {
         "name": "Margherita",
@@ -28,7 +30,7 @@ export const ingredientsSeed: IIngredientsDB[] = [
         name: "tomato"
     },
     {
-        name: "mozarella"
+        name: "mozzarella"
     },
     {
         name: "mozarella di bufala"
@@ -47,14 +49,14 @@ export const ingredientsSeed: IIngredientsDB[] = [
     }
 ]
 
-export const pizzaIngredientsSeed: IPizzasIngredientsDB[] = [
+export const pizzasIngredientsSeed: IPizzasIngredientsDB[] = [
     {
         pizza_name: "Margherita",
         ingredient_name: "tomato"
     },
     {
         pizza_name: "Margherita",
-        ingredient_name: "mozarella"
+        ingredient_name: "mozzarella"
     },
     {
         pizza_name: "Bufala",
@@ -70,7 +72,7 @@ export const pizzaIngredientsSeed: IPizzasIngredientsDB[] = [
     },
     {
         pizza_name: "Romana",
-        ingredient_name: "mozarella"
+        ingredient_name: "mozzarella"
     },
     {
         pizza_name: "Romana",
@@ -90,7 +92,7 @@ export const pizzaIngredientsSeed: IPizzasIngredientsDB[] = [
     },
     {
         pizza_name: "Diavola",
-        ingredient_name: "mozarella"
+        ingredient_name: "mozzarella"
     },
     {
         pizza_name: "Diavola",
@@ -98,7 +100,7 @@ export const pizzaIngredientsSeed: IPizzasIngredientsDB[] = [
     },
     {
         pizza_name: "Pizza Bianca",
-        ingredient_name: "mozarella"
+        ingredient_name: "mozzarella"
     },
     {
         pizza_name: "Pizza Bianca",

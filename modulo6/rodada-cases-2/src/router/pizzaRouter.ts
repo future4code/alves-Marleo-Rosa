@@ -14,3 +14,4 @@ const pizzaController = new PizzaController(
 )
 
 pizzaRouter.get("/", pizzaController.getPizzas)
+pizzaRouter.get("/v2", pizzaController.getPizzasV2)
