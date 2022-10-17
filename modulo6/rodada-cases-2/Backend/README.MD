@@ -1,19 +1,16 @@
-### Projeto Backend LAMA (Labenu Music Awards)
+### Backend do Projeto Ambulnz (Pizzaria Delivery)
 
 ##### `Autor:` Márleo Piber da Rosa
 ##### `Turma:` Alves
 
 ####**`Endpoints implementados:`**
 
-1. Criar usuário;
-2. Login;
-3. Criar show;
-4. Buscar todos os shows;
-5. Reservar ticket de show;
-6. Cancelar reserva de show;
+1. Get pizzas;
+2. Create Order;
+3. Get Orders;
 
-####**`Documentação da API:`**
-https://documenter.getpostman.com/view/21555670/2s83tGoC3v
+#### `API na AWS:`
+http://ec2-3-88-84-198.compute-1.amazonaws.com:3003/api/
 
 #### `Tecnologias utilizadas`
 <div>
@@ -26,3 +23,4 @@ https://documenter.getpostman.com/view/21555670/2s83tGoC3v
 <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white">
 <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
 <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white">
