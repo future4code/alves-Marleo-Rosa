@@ -1,0 +1,2 @@
+### 1) Get Pokémons
+GET http://localhost:3003/pokemon
